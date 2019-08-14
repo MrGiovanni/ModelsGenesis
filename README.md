@@ -25,13 +25,24 @@ $ git clone https://github.com/MrGiovanni/ModelsGenesis.git
 $ cd ModelsGenesis/
 ```
 
-### 2. Download the pre-trained weights
+### 2. Download the pre-trained Models Genesis
 ```bash
 bash ./download_models_genesis.sh model_name
 ```
 The models will be automatically saved to `./pretrained_weights/model_name.h5`.
 
-### 3. Load 
+### 3. Fine-tune Models Genesis on your own target task
+Models Genesis learn a general-purpose image representation that can be leveraged for a wide range of target tasks. Specifically, Models Genesis can be utilized to initialize the encoder for the target <i>classification</i> tasks and to initialize the encoder-decoder for the target <i>segmentation</i> tasks.
+
+As for the target classification tasks, the 3D deep model can be initialized with the pre-trained encoder using the following example:
+```python
+
+```
+
+As for the target segmentation tasks, the 3D deep model can be initialized with the pre-trained encoder-decoder using the following example:
+```python
+
+```
 
 <br/>
 
