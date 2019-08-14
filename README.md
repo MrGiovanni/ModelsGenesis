@@ -37,25 +37,44 @@ Models Genesis learn a general-purpose image representation that can be leverage
 
 As for the target classification tasks, the 3D deep model can be initialized with the pre-trained encoder using the following example:
 ```python
+# prepare your own data
+X, y = your_data_loader()
 
+# prepare the 3D model
+import keras
+from unet3d import *
+input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
+weight_dir = ''
+base_model = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
+print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
+base_model.load_weights(weight_dir)
+x = base_model.get_layer('depth_7_relu').output
+x = GlobalAveragePooling3D()(x)
+x = Dense(1024, activation='relu')(x)
+output = Dense(config.num_class, activation=config.activate)(x)
+model = keras.models.Model(inputs=base_model.input, outputs=output)
+model.compile(optimizer="adam", loss=dice_coef_loss, metrics=[mean_iou,dice_coef])
+
+# train the model
+model.fit(X, y)
 ```
 
 As for the target segmentation tasks, the 3D deep model can be initialized with the pre-trained encoder-decoder using the following example:
 ```python
 # prepare your own data
-x, y = ... # range in [0,1]
+X, Y = your_data_loader()
 
 # prepare the 3D model
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
 weight_dir = ''
 model = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
-print("Load pre-trained encoder-decoder weights from {}".format(weight_dir))
+print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 model.load_weights(weight_dir)
 model.compile(optimizer="adam", loss=dice_coef_loss, metrics=[mean_iou,dice_coef])
 
 # train the model
-model.fit(x, y)
+model.fit(X, Y)
 ```
 
 <br/>
