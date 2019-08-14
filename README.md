@@ -17,24 +17,24 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 
 <br/>
 
-## Usage
+## Usage of the pre-trained Models Genesis
 
-### 1. Cloning the repository
+### 1. Clone the repository
 ```bash
-$ git clone https://github.com/yunjey/StarGAN.git
+$ git clone https://github.com/MrGiovanni/ModelsGenesis.git
 $ cd ModelsGenesis/
 ```
 
-<br/>
-
-## Model Zoo
-Download the pre-trained Models Genesis with the following script
+### 2. Download the pre-trained weights
 ```bash
-bash ./pretrained_models/download_model.sh model_name
+bash ./download_models_genesis.sh model_name
 ```
-The models will be automatically saved to `./checkpoints/model_name/latest_net_G.t7`.
+The models will be automatically saved to `./pretrained_weights/model_name.h5`.
+
+### 3. Load 
 
 <br/>
+
 
 ## Citation
 If you use this code or use our pre-trained weights for your research, please cite our [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf):
