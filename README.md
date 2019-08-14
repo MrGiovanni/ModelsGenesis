@@ -1,6 +1,10 @@
 <p align="center"><img width="40%" src="figures/logo.png" /></p>
 
 --------------------------------------------------------------------------------
+This repository provides a Keras implementation of [Models Genesis](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf). 
+
+<p align="center"><img width="100%" src="figures/patch_generator.png" /></p>
+<p align="center"><img width="100%" src="figures/framework.png" /></p>
 
 ## Paper
 [Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) <br/>
