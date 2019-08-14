@@ -47,15 +47,16 @@ X, y = your_data_loader()
 import keras
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
+num_class, activate = 2, 'softmax'
 weight_dir = ''
-base_model = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
+models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
-base_model.load_weights(weight_dir)
-x = base_model.get_layer('depth_7_relu').output
+models_genesis.load_weights(weight_dir)
+x = models_genesis.get_layer('depth_7_relu').output
 x = GlobalAveragePooling3D()(x)
 x = Dense(1024, activation='relu')(x)
-output = Dense(config.num_class, activation=config.activate)(x)
-model = keras.models.Model(inputs=base_model.input, outputs=output)
+output = Dense(num_class, activation=activate)(x)
+model = keras.models.Model(inputs=models_genesis.input, outputs=output)
 model.compile(optimizer="adam", loss=dice_coef_loss, metrics=[mean_iou,dice_coef])
 
 # train the model
@@ -70,11 +71,13 @@ X, Y = your_data_loader()
 # prepare the 3D model
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
+num_class, activate = 2, 'softmax'
 weight_dir = ''
-model = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
+models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
-model.load_weights(weight_dir)
-model.compile(optimizer="adam", loss=dice_coef_loss, metrics=[mean_iou,dice_coef])
+models_genesis.load_weights(weight_dir)
+...
+models.compile(optimizer="adam", loss=dice_coef_loss, metrics=[mean_iou,dice_coef])
 
 # train the model
 model.fit(X, Y)
