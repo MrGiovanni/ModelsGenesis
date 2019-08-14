@@ -13,12 +13,31 @@ We have built a set of pre-trained models called <b>Generic Autodidactic Models<
 [Zongwei Zhou](https://www.zongweiz.com/)<sup>1</sup>, [Vatsal Sodha](https://github.com/vatsal-sodha)<sup>2</sup>, [Md Mahfuzur Rahman Siddiquee](https://github.com/mahfuzmohammad)<sup>1</sup>,  <br/>
 [Ruibin Feng](https://chs.asu.edu/ruibin-feng)<sup>1</sup>, [Nima Tajbakhsh](https://www.linkedin.com/in/nima-tajbakhsh-b5454376/)<sup>1</sup>, [Michael Gotway](https://www.mayoclinic.org/biographies/gotway-michael-b-m-d/bio-20055566)<sup>2</sup> and [Jianming Liang](https://chs.asu.edu/jianming-liang)<sup>1</sup> <br/>
 <sup>1 </sup>Arizona State University,   <sup>2 </sup>Mayo Clinic <br/>
-International Conference on Medical Image Computing and Computer Assisted Intervention ([MICCAI](https://www.miccai2019.org/)), 2019 (<b>Oral</b>) 
+International Conference on Medical Image Computing and Computer Assisted Intervention ([MICCAI](https://www.miccai2019.org/)), 2019 (<b>Oral</b>)
+
+<br/>
+
+## Usage
+
+### 1. Cloning the repository
+```bash
+$ git clone https://github.com/yunjey/StarGAN.git
+$ cd ModelsGenesis/
+```
+
+<br/>
+
+## Model Zoo
+Download the pre-trained Models Genesis with the following script
+```bash
+bash ./pretrained_models/download_model.sh model_name
+```
+The models will be automatically saved to `./checkpoints/model_name/latest_net_G.t7`.
 
 <br/>
 
 ## Citation
-If this work is useful for your research, please cite our [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf):
+If you use this code or use our pre-trained weights for your research, please cite our [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf):
 ```
 @incollection{zhou2019models,
 author = {Zhou, Zongwei and Sodha, Vatsal and Rahman Siddiquee, Md Mahfuzur and Feng, Ruibin and Tajbakhsh, Nima and Gotway, Michael and Liang, Jianming},
