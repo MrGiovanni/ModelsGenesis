@@ -23,7 +23,7 @@ If this work is useful for your research, please cite our [paper](http://www.cs.
 @incollection{zhou2019models,
 author = {Zhou, Zongwei and Sodha, Vatsal and Rahman Siddiquee, Md Mahfuzur and Feng, Ruibin and Tajbakhsh, Nima and Gotway, Michael and Liang, Jianming},
 title = {Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis},
-booktitle = {Medical Image Computing and Computer-Assisted Intervention (MICCAI)},
+booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
 month = {October},
 year = {2019}
 }
