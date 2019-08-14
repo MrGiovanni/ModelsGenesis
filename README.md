@@ -1,7 +1,7 @@
 <p align="center"><img width="50%" src="figures/logo.png" /></p>
 
 --------------------------------------------------------------------------------
-We have built a set of pre-trained models called <b>Generic Autodidactic Models</b>, nicknamed <b>Models Genesis</b>, because they are created <i>ex nihilo</i> (with no manual labeling), self-taught (learned by self-supervision), and generic (served as source models for generating application-specific target models). This repository provides a Keras implementation of training Models Genesis as well as the pre-trained Genesis Chest CT. We envision that Models Genesis may serve as a primary source of transfer learning for 3D medical imaging applications, in particular, with limited annotated data. 
+We have built a set of pre-trained models called <b>Generic Autodidactic Models</b>, nicknamed <b>Models Genesis</b>, because they are created <i>ex nihilo</i> (with no manual labeling), self-taught (learned by self-supervision), and generic (served as source models for generating application-specific target models). We envision that Models Genesis may serve as a primary source of transfer learning for 3D medical imaging applications, in particular, with limited annotated data. 
 
 <p align="center"><img width="100%" src="figures/patch_generator.png" /></p>
 <p align="center"><img width="80%" src="figures/framework.png" /></p>
@@ -9,6 +9,8 @@ We have built a set of pre-trained models called <b>Generic Autodidactic Models<
 <br/>
 
 ## Paper
+This repository provides the official Keras (TensorFlow) implementation of training Models Genesis as well as the pre-trained Genesis Chest CT in the following paper:
+
 [Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) <br/>
 [Zongwei Zhou](https://www.zongweiz.com/)<sup>1</sup>, [Vatsal Sodha](https://github.com/vatsal-sodha)<sup>2</sup>, [Md Mahfuzur Rahman Siddiquee](https://github.com/mahfuzmohammad)<sup>1</sup>,  <br/>
 [Ruibin Feng](https://chs.asu.edu/ruibin-feng)<sup>1</sup>, [Nima Tajbakhsh](https://www.linkedin.com/in/nima-tajbakhsh-b5454376/)<sup>1</sup>, [Michael Gotway](https://www.mayoclinic.org/biographies/gotway-michael-b-m-d/bio-20055566)<sup>2</sup> and [Jianming Liang](https://chs.asu.edu/jianming-liang)<sup>1</sup> <br/>
