@@ -1,6 +1,7 @@
 <p align="center"><img width="50%" src="figures/logo.png" /></p>
 
 --------------------------------------------------------------------------------
+We have built a set of pre-trained models called <b>Generic Autodidactic Models</b>, nicknamed [Models Genesis](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf), because they are created <i>ex nihilo</i> (with no manual labeling), self-taught (learnt by self-supervision), and generic (served as source models for generating application-specific target models).
 This repository provides a Keras implementation of [Models Genesis](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf). 
 
 <p align="center"><img width="100%" src="figures/patch_generator.png" /></p>
