@@ -9,7 +9,7 @@ We have built a set of pre-trained models called <b>Generic Autodidactic Models<
 <br/>
 
 ## Paper
-This repository provides the official Keras (TensorFlow) implementation of training Models Genesis as well as the pre-trained Genesis Chest CT in the following paper:
+This repository provides the official Keras implementation of training Models Genesis as well as the usage of the pre-trained Models Genesis in the following paper:
 
 [Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) <br/>
 [Zongwei Zhou](https://www.zongweiz.com/)<sup>1</sup>, [Vatsal Sodha](https://github.com/vatsal-sodha)<sup>2</sup>, [Md Mahfuzur Rahman Siddiquee](https://github.com/mahfuzmohammad)<sup>1</sup>,  <br/>
