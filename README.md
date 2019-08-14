@@ -1,4 +1,6 @@
-# Models Genesis
+<p align="center"><img width="40%" src="figures/logo.jpg" /></p>
+
+--------------------------------------------------------------------------------
 
 ## Paper
 [Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) <br/>
