@@ -94,7 +94,8 @@ author = {Zhou, Zongwei and Sodha, Vatsal and Rahman Siddiquee, Md Mahfuzur and 
 title = {Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis},
 booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
 month = {October},
-year = {2019}
+year = {2019},
+url = {http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf}
 }
 ```
 
