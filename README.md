@@ -85,6 +85,19 @@ model.fit(X, Y)
 
 <br/>
 
+## Let Models Genesis learn visual representation from your own unlabeled data
+
+### 1. Clone the repository
+```bash
+$ git clone https://github.com/MrGiovanni/ModelsGenesis.git
+$ cd ModelsGenesis/
+$ pip install -r requirements.txt
+```
+
+### 2. Create the data generator
+
+<br/>
+
 
 ## Citation
 If you use this code or use our pre-trained weights for your research, please cite our [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf):
