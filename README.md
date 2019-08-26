@@ -3,6 +3,7 @@
 --------------------------------------------------------------------------------
 We have built a set of pre-trained models called <b>Generic Autodidactic Models</b>, nicknamed <b>Models Genesis</b>, because they are created <i>ex nihilo</i> (with no manual labeling), self-taught (learned by self-supervision), and generic (served as source models for generating application-specific target models). We envision that Models Genesis may serve as a primary source of transfer learning for 3D medical imaging applications, in particular, with limited annotated data. 
 
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 <p align="center"><img width="100%" src="figures/patch_generator.png" /></p>
 <p align="center"><img width="85%" src="figures/framework.png" /></p>
 
@@ -17,13 +18,6 @@ This repository provides the official Keras implementation of training Models Ge
 <sup>1 </sup>Arizona State University,   <sup>2 </sup>Mayo Clinic <br/>
 International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2019 (<b>Early acceptance, Oral</b>)  <br/>
 [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | slides | poster | talk
-
-<br/>
-
-## License
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-[MIT license](https://github.com/MrGiovanni/Nested-UNet/blob/master/LICENSE)
 
 <br/>
 
