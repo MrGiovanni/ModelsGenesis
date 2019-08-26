@@ -105,12 +105,12 @@ $ pip install -r requirements.txt
 If you use this code or use our pre-trained weights for your research, please cite our [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf):
 ```
 @incollection{zhou2019models,
-author = {Zhou, Zongwei and Sodha, Vatsal and Rahman Siddiquee, Md Mahfuzur and Feng, Ruibin and Tajbakhsh, Nima and Gotway, Michael and Liang, Jianming},
-title = {Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis},
-booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
-month = {October},
-year = {2019},
-url = {http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf}
+  author = {Zhou, Zongwei and Sodha, Vatsal and Rahman Siddiquee, Md Mahfuzur and Feng, Ruibin and Tajbakhsh, Nima and Gotway, Michael and Liang, Jianming},
+  title = {Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis},
+  booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
+  month = {October},
+  year = {2019},
+  url = {http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf}
 }
 ```
 
