@@ -20,6 +20,13 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 
 <br/>
 
+## License
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+[MIT license](https://github.com/MrGiovanni/Nested-UNet/blob/master/LICENSE)
+
+<br/>
+
 ## Usage of the pre-trained Models Genesis
 
 ### 1. Clone the repository
