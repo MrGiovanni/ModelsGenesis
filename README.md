@@ -24,7 +24,7 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 
 ## Usage of the pre-trained Models Genesis
 
-### Dependencies
+### 0. Dependencies
 
 + Python 2.7
 + Keras 2.1.3
@@ -102,7 +102,39 @@ $ cd ModelsGenesis/
 $ pip install -r requirements.txt
 ```
 
-### 2. Create the data generator
+### 2. Create the data generator (LUNA-2016 for example)
+```bash
+$ bash download_dataset.sh luna16
+```
+After downloading LUNA-2016 dataset, it will be saved at `./datasets/luna16`.
+Extract 3D cubes from the patient data
+```bash
+for subset in `seq 0 9`
+do
+python -W ignore infinite_generator_3D.py \
+--fold $subset \
+--scale 32 \
+--data datasets/luna16 \
+--save generated_cubes
+done
+```
+The extracted 3D cubes will be saved at `./generated_cubes`.
+
+### 3. Pre-train Models Genesis (LUNA-2016 for example)
+```bash
+CUDA_VISIBLE_DEVICES=0 python -W ignore Genesis_Chest_CT.py \
+--note genesis_chest_ct \
+--arch Vnet \
+--input_rows 64 \
+--input_cols 64 \
+--input_deps 32 \
+--nb_class 1 \
+--verbose 1 \
+--batch_size 16 \
+--scale 32 \
+--data generated_cubes
+```
+The pre-trained Models Genesis will be saved at `pretrained_weights/Vnet-genesis_chest_ct.h5`.
 
 <br/>
 
