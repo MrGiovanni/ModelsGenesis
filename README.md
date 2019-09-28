@@ -94,7 +94,7 @@ model.fit(X, Y)
 
 <br/>
 
-# Let Models Genesis learn visual representation from your own unlabeled data
+# Learn Models Genesis from your own unlabeled data
 
 ### 0. Dependencies
 
