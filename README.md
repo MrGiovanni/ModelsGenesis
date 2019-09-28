@@ -38,10 +38,11 @@ $ pip install -r requirements.txt
 ```
 
 ### 2. Download the pre-trained Models Genesis
+Please fill in the form [here](https://docs.google.com/forms/d/e/1FAIpQLScs-7dfti6s8g_4D6QvuPNFsSwJzrfPEMrGcQNU_Vq6elAf8Q/viewform?vc=0&c=0&w=1) to request downloading the pre-trained weights.
 ```bash
-$ bash ./download_models_genesis.sh model_name
+$ bash ./download_models_genesis.sh Vnet-genesis_chest_ct-official
 ```
-The models will be automatically saved to `./pretrained_weights/model_name.h5`.
+The models will be automatically saved to `./pretrained_weights/Vnet-genesis_chest_ct-official.h5`.
 
 ### 3. Fine-tune Models Genesis on your own target task
 Models Genesis learn a general-purpose image representation that can be leveraged for a wide range of target tasks. Specifically, Models Genesis can be utilized to initialize the encoder for the target <i>classification</i> tasks and to initialize the encoder-decoder for the target <i>segmentation</i> tasks.
@@ -94,6 +95,12 @@ model.fit(X, Y)
 <br/>
 
 ## Let Models Genesis learn visual representation from your own unlabeled data
+
+### 0. Dependencies
+
++ Python 2.7
++ Keras 2.1.3
++ TensorFlow 1.4.0
 
 ### 1. Clone the repository
 ```bash
