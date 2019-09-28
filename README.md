@@ -57,7 +57,7 @@ import keras
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
 num_class, activate = 2, 'softmax'
-weight_dir = ''
+weight_dir = 'pretrained_weights/Vnet-genesis_chest_ct-official.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
@@ -81,7 +81,7 @@ X, Y = your_data_loader()
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
 num_class, activate = 2, 'softmax'
-weight_dir = ''
+weight_dir = 'pretrained_weights/Vnet-genesis_chest_ct-official.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
