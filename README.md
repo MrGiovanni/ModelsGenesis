@@ -10,7 +10,7 @@ We have built a set of pre-trained models called <b>Generic Autodidactic Models<
 
 <br/>
 
-## Paper
+# Paper
 This repository provides the official Keras implementation of training Models Genesis as well as the usage of the pre-trained Models Genesis in the following paper:
 
 <b>Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis</b> <br/>
@@ -22,7 +22,7 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 
 <br/>
 
-## Usage of the pre-trained Models Genesis
+# Usage of the pre-trained Models Genesis
 
 ### 0. Dependencies
 
@@ -94,7 +94,7 @@ model.fit(X, Y)
 
 <br/>
 
-## Let Models Genesis learn visual representation from your own unlabeled data
+# Let Models Genesis learn visual representation from your own unlabeled data
 
 ### 0. Dependencies
 
@@ -146,7 +146,7 @@ The pre-trained Models Genesis will be saved at `pretrained_weights/Vnet-genesis
 <br/>
 
 
-## Citation
+# Citation
 If you use this code or use our pre-trained weights for your research, please cite our [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf):
 ```
 @incollection{zhou2019models,
@@ -161,5 +161,5 @@ If you use this code or use our pre-trained weights for your research, please ci
 
 <br/>
 
-## Acknowledgement
+# Acknowledgement
 This research has been supported partially by ASU and Mayo Clinic through a Seed Grant and an Innovation Grant, and partially by NIH under Award Number R01HL128785. The content is solely the responsibility of the authors and does not necessarily represent the official views of NIH.
