@@ -24,6 +24,12 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 
 ## Usage of the pre-trained Models Genesis
 
+### Dependencies
+
++ Python 2.7
++ Keras 2.1.3
++ TensorFlow 1.4.0
+
 ### 1. Clone the repository
 ```bash
 $ git clone https://github.com/MrGiovanni/ModelsGenesis.git
