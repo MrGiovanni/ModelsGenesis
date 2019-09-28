@@ -24,6 +24,12 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 
 ## Usage of the pre-trained Models Genesis
 
+### 0. Dependencies
+
++ Python 2.7
++ Keras 2.1.3
++ TensorFlow 1.4.0
+
 ### 1. Clone the repository
 ```bash
 $ git clone https://github.com/MrGiovanni/ModelsGenesis.git
@@ -32,10 +38,11 @@ $ pip install -r requirements.txt
 ```
 
 ### 2. Download the pre-trained Models Genesis
+Please fill in the form [here](https://docs.google.com/forms/d/e/1FAIpQLScs-7dfti6s8g_4D6QvuPNFsSwJzrfPEMrGcQNU_Vq6elAf8Q/viewform?vc=0&c=0&w=1) to request downloading the pre-trained weights.
 ```bash
-$ bash ./download_models_genesis.sh model_name
+$ bash ./download_models_genesis.sh Vnet-genesis_chest_ct-official
 ```
-The models will be automatically saved to `./pretrained_weights/model_name.h5`.
+The models will be automatically saved to `./pretrained_weights/Vnet-genesis_chest_ct-official.h5`.
 
 ### 3. Fine-tune Models Genesis on your own target task
 Models Genesis learn a general-purpose image representation that can be leveraged for a wide range of target tasks. Specifically, Models Genesis can be utilized to initialize the encoder for the target <i>classification</i> tasks and to initialize the encoder-decoder for the target <i>segmentation</i> tasks.
@@ -50,7 +57,7 @@ import keras
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
 num_class, activate = 2, 'softmax'
-weight_dir = ''
+weight_dir = 'pretrained_weights/Vnet-genesis_chest_ct-official.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
@@ -74,7 +81,7 @@ X, Y = your_data_loader()
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
 num_class, activate = 2, 'softmax'
-weight_dir = ''
+weight_dir = 'pretrained_weights/Vnet-genesis_chest_ct-official.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
@@ -89,6 +96,12 @@ model.fit(X, Y)
 
 ## Let Models Genesis learn visual representation from your own unlabeled data
 
+### 0. Dependencies
+
++ Python 2.7
++ Keras 2.1.3
++ TensorFlow 1.4.0
+
 ### 1. Clone the repository
 ```bash
 $ git clone https://github.com/MrGiovanni/ModelsGenesis.git
@@ -96,7 +109,39 @@ $ cd ModelsGenesis/
 $ pip install -r requirements.txt
 ```
 
-### 2. Create the data generator
+### 2. Create the data generator (LUNA-2016 for example)
+```bash
+$ bash download_dataset.sh luna16
+```
+After downloading LUNA-2016 dataset, it will be saved at `./datasets/luna16`.
+Extract 3D cubes from the patient data
+```bash
+for subset in `seq 0 9`
+do
+python -W ignore infinite_generator_3D.py \
+--fold $subset \
+--scale 32 \
+--data datasets/luna16 \
+--save generated_cubes
+done
+```
+The extracted 3D cubes will be saved at `./generated_cubes`.
+
+### 3. Pre-train Models Genesis (LUNA-2016 for example)
+```bash
+CUDA_VISIBLE_DEVICES=0 python -W ignore Genesis_Chest_CT.py \
+--note genesis_chest_ct \
+--arch Vnet \
+--input_rows 64 \
+--input_cols 64 \
+--input_deps 32 \
+--nb_class 1 \
+--verbose 1 \
+--batch_size 16 \
+--scale 32 \
+--data generated_cubes
+```
+The pre-trained Models Genesis will be saved at `pretrained_weights/Vnet-genesis_chest_ct.h5`.
 
 <br/>
 
