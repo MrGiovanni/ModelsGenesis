@@ -13,7 +13,7 @@ CUDA_VISIBLE_DEVICES=1 python -W ignore Genesis_Chest_CT.py \
 --verbose 1 \
 --batch_size 16 \
 --scale 32 \
---data /mnt/dataset/shared/zongwei/LUNA16/Self_Learning_Cubes
+--data generated_cubes
 """
 
 # In[1]:
@@ -73,6 +73,7 @@ parser.add_option("--local_rate", dest="local_rate", help="chance to perform loc
 
 assert options.arch in ['Vnet']
 assert options.data is not None
+assert os.path.exists(options.data) == True
 
 seed = 1
 random.seed(seed)

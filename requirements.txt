@@ -3,3 +3,4 @@ keras==2.1.3
 tqdm
 sklearn
 scikit-image
+simpleitk
