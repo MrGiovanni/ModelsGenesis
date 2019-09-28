@@ -4,7 +4,7 @@
 """
 for subset in `seq 0 9`
 do
-CUDA_VISIBLE_DEVICES=0 python infinite_generator_3D.py \
+python -W ignore infinite_generator_3D.py \
 --fold $subset \
 --scale 32 \
 --data /mnt/dataset/shared/zongwei/LUNA16 \
