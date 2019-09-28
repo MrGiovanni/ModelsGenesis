@@ -85,7 +85,10 @@ weight_dir = 'pretrained_weights/Vnet-genesis_chest_ct-official.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
-...
+x = models_genesis.get_layer('depth_13_relu').output
+final_convolution = Conv3D(num_class, (1, 1, 1))(current_layer)
+output = Activation(activate)(final_convolution)
+model = keras.models.Model(inputs=models_genesis.input, outputs=output)
 models.compile(optimizer="adam", loss=dice_coef_loss, metrics=[mean_iou,dice_coef])
 
 # train the model
