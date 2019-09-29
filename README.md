@@ -26,6 +26,7 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 
 ### 0. Dependencies
 
++ Linux
 + Python 2.7
 + Keras 2.1.3
 + TensorFlow 1.4.0
@@ -40,9 +41,9 @@ $ pip install -r requirements.txt
 ### 2. Download the pre-trained Models Genesis
 Please fill in the form [here](https://docs.google.com/forms/d/e/1FAIpQLScs-7dfti6s8g_4D6QvuPNFsSwJzrfPEMrGcQNU_Vq6elAf8Q/viewform?vc=0&c=0&w=1) to request downloading the pre-trained weights.
 ```bash
-$ bash ./download_models_genesis.sh Vnet-genesis_chest_ct-official
+$ bash ./download_models_genesis.sh
 ```
-The models will be automatically saved to `./pretrained_weights/Vnet-genesis_chest_ct-official.h5`.
+The models will be automatically saved to `./pretrained_weights/VNet_Genesis_Chest_CT.h5`.
 
 ### 3. Fine-tune Models Genesis on your own target task
 Models Genesis learn a general-purpose image representation that can be leveraged for a wide range of target tasks. Specifically, Models Genesis can be utilized to initialize the encoder for the target <i>classification</i> tasks and to initialize the encoder-decoder for the target <i>segmentation</i> tasks.
@@ -57,7 +58,7 @@ import keras
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
 num_class, activate = 2, 'softmax'
-weight_dir = 'pretrained_weights/Vnet-genesis_chest_ct-official.h5'
+weight_dir = 'pretrained_weights/VNet_Genesis_Chest_CT.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
@@ -81,7 +82,7 @@ X, Y = your_data_loader()
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
 num_class, activate = 2, 'softmax'
-weight_dir = 'pretrained_weights/Vnet-genesis_chest_ct-official.h5'
+weight_dir = 'pretrained_weights/VNet_Genesis_Chest_CT.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
@@ -101,6 +102,7 @@ model.fit(X, Y)
 
 ### 0. Dependencies
 
++ Linux
 + Python 2.7
 + Keras 2.1.3
 + TensorFlow 1.4.0
@@ -113,6 +115,7 @@ $ pip install -r requirements.txt
 ```
 
 ### 2. Create the data generator (LUNA-2016 for example)
+Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) or run the script as follows:
 ```bash
 $ bash download_dataset.sh luna16
 ```
