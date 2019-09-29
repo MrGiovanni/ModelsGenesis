@@ -10,19 +10,19 @@ We have built a set of pre-trained models called <b>Generic Autodidactic Models<
 
 <br/>
 
-## Paper
+# Paper
 This repository provides the official Keras implementation of training Models Genesis as well as the usage of the pre-trained Models Genesis in the following paper:
 
 <b>Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis</b> <br/>
 [Zongwei Zhou](https://www.zongweiz.com/)<sup>1</sup>, [Vatsal Sodha](https://github.com/vatsal-sodha)<sup>1</sup>, [Md Mahfuzur Rahman Siddiquee](https://github.com/mahfuzmohammad)<sup>1</sup>,  <br/>
-[Ruibin Feng](https://chs.asu.edu/ruibin-feng)<sup>1</sup>, [Nima Tajbakhsh](https://www.linkedin.com/in/nima-tajbakhsh-b5454376/)<sup>1</sup>, [Michael Gotway](https://www.mayoclinic.org/biographies/gotway-michael-b-m-d/bio-20055566)<sup>2</sup> and [Jianming Liang](https://chs.asu.edu/jianming-liang)<sup>1</sup> <br/>
+[Ruibin Feng](https://chs.asu.edu/ruibin-feng)<sup>1</sup>, [Nima Tajbakhsh](https://www.linkedin.com/in/nima-tajbakhsh-b5454376/)<sup>1</sup>, [Michael B. Gotway](https://www.mayoclinic.org/biographies/gotway-michael-b-m-d/bio-20055566)<sup>2</sup> and [Jianming Liang](https://chs.asu.edu/jianming-liang)<sup>1</sup> <br/>
 <sup>1 </sup>Arizona State University,   <sup>2 </sup>Mayo Clinic <br/>
 International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2019 (<b>Early acceptance, Oral</b>)  <br/>
-[paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | slides | [poster](https://docs.wixstatic.com/ugd/deaea1_cf1b30bee2064757942698e16fce6bdd.pdf) | talk
+[paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | slides | [poster](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/Models_Genesis_Poster.pdf) | talk
 
 <br/>
 
-## Usage of the pre-trained Models Genesis
+# Usage of the pre-trained Models Genesis
 
 ### 0. Dependencies
 
@@ -85,7 +85,10 @@ weight_dir = 'pretrained_weights/Vnet-genesis_chest_ct-official.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
-...
+x = models_genesis.get_layer('depth_13_relu').output
+final_convolution = Conv3D(num_class, (1, 1, 1))(x)
+output = Activation(activate)(final_convolution)
+model = keras.models.Model(inputs=models_genesis.input, outputs=output)
 models.compile(optimizer="adam", loss=dice_coef_loss, metrics=[mean_iou,dice_coef])
 
 # train the model
@@ -94,7 +97,7 @@ model.fit(X, Y)
 
 <br/>
 
-## Let Models Genesis learn visual representation from your own unlabeled data
+# Learn Models Genesis from your own unlabeled data
 
 ### 0. Dependencies
 
@@ -146,7 +149,7 @@ The pre-trained Models Genesis will be saved at `pretrained_weights/Vnet-genesis
 <br/>
 
 
-## Citation
+# Citation
 If you use this code or use our pre-trained weights for your research, please cite our [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf):
 ```
 @incollection{zhou2019models,
@@ -161,5 +164,5 @@ If you use this code or use our pre-trained weights for your research, please ci
 
 <br/>
 
-## Acknowledgement
+# Acknowledgement
 This research has been supported partially by ASU and Mayo Clinic through a Seed Grant and an Innovation Grant, and partially by NIH under Award Number R01HL128785. The content is solely the responsibility of the authors and does not necessarily represent the official views of NIH.
