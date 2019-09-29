@@ -22,14 +22,14 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 
 <br/>
 
-# Usage of the pre-trained Models Genesis
-
-### 0. Dependencies
+# Dependencies
 
 + Linux
 + Python 2.7
 + Keras 2.1.3
 + TensorFlow 1.4.0
+
+# Usage of the pre-trained Models Genesis
 
 ### 1. Clone the repository
 ```bash
@@ -39,11 +39,10 @@ $ pip install -r requirements.txt
 ```
 
 ### 2. Download the pre-trained Models Genesis
-Please fill in the form [here](https://docs.google.com/forms/d/e/1FAIpQLScs-7dfti6s8g_4D6QvuPNFsSwJzrfPEMrGcQNU_Vq6elAf8Q/viewform?vc=0&c=0&w=1) to request downloading the pre-trained weights.
+To download the pre-trained Models Genesis, request [here](https://docs.google.com/forms/d/e/1FAIpQLScs-7dfti6s8g_4D6QvuPNFsSwJzrfPEMrGcQNU_Vq6elAf8Q/viewform?vc=0&c=0&w=1) and run the script below. The pre-trained Genesis Chest CT will be downloaded and saved into `./pretrained_weights/VNet_Genesis_Chest_CT.h5` directory.
 ```bash
 $ bash ./download_models_genesis.sh
 ```
-The models will be automatically saved to `./pretrained_weights/VNet_Genesis_Chest_CT.h5`.
 
 ### 3. Fine-tune Models Genesis on your own target task
 Models Genesis learn a general-purpose image representation that can be leveraged for a wide range of target tasks. Specifically, Models Genesis can be utilized to initialize the encoder for the target <i>classification</i> tasks and to initialize the encoder-decoder for the target <i>segmentation</i> tasks.
@@ -100,13 +99,6 @@ model.fit(X, Y)
 
 # Learn Models Genesis from your own unlabeled data
 
-### 0. Dependencies
-
-+ Linux
-+ Python 2.7
-+ Keras 2.1.3
-+ TensorFlow 1.4.0
-
 ### 1. Clone the repository
 ```bash
 $ git clone https://github.com/MrGiovanni/ModelsGenesis.git
@@ -115,12 +107,12 @@ $ pip install -r requirements.txt
 ```
 
 ### 2. Create the data generator (LUNA-2016 for example)
-Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) or run the script as follows:
+Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) or run the script below. The LUNA-2016 dataset will be automatically downloaded and saved into `./datasets/luna16` directory.
 ```bash
 $ bash download_dataset.sh luna16
 ```
-After downloading LUNA-2016 dataset, it will be saved at `./datasets/luna16`.
-Extract 3D cubes from the patient data
+
+Extract 3D cubes from the patient data by running the script below. The extracted 3D cubes will be saved into `./generated_cubes` directory.
 ```bash
 for subset in `seq 0 9`
 do
@@ -131,7 +123,7 @@ python -W ignore infinite_generator_3D.py \
 --save generated_cubes
 done
 ```
-The extracted 3D cubes will be saved at `./generated_cubes`.
+
 
 ### 3. Pre-train Models Genesis (LUNA-2016 for example)
 ```bash
@@ -147,7 +139,7 @@ CUDA_VISIBLE_DEVICES=0 python -W ignore Genesis_Chest_CT.py \
 --scale 32 \
 --data generated_cubes
 ```
-The pre-trained Models Genesis will be saved at `pretrained_weights/Vnet-genesis_chest_ct.h5`.
+Your pre-trained Models Genesis will be saved at `pretrained_weights/Vnet-genesis_chest_ct.h5`.
 
 <br/>
 
