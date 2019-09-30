@@ -39,7 +39,7 @@ $ pip install -r requirements.txt
 ```
 
 ### 2. Download the pre-trained Models Genesis
-To download the pre-trained Models Genesis, request [here](https://docs.google.com/forms/d/e/1FAIpQLScs-7dfti6s8g_4D6QvuPNFsSwJzrfPEMrGcQNU_Vq6elAf8Q/viewform?vc=0&c=0&w=1) and run the script below. The pre-trained Genesis Chest CT will be downloaded and saved into `./pretrained_weights/VNet_Genesis_Chest_CT.h5` directory.
+To download the pre-trained Models Genesis, request [here for users who can access Google](https://docs.google.com/forms/d/e/1FAIpQLScs-7dfti6s8g_4D6QvuPNFsSwJzrfPEMrGcQNU_Vq6elAf8Q/viewform?vc=0&c=0&w=1) or [here for users who cannot access Google](https://www.wjx.top/jq/46747127.aspx). You will receive a script `download_models_genesis.sh` to download the pre-trained models within one business day. Run the script and the pre-trained Genesis Chest CT will be downloaded and saved into `./pretrained_weights/Genesis_Chest_CT.h5` directory.
 ```bash
 $ bash ./download_models_genesis.sh
 ```
@@ -57,7 +57,7 @@ import keras
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
 num_class, activate = 2, 'softmax'
-weight_dir = 'pretrained_weights/VNet_Genesis_Chest_CT.h5'
+weight_dir = 'pretrained_weights/Genesis_Chest_CT.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
@@ -81,7 +81,7 @@ X, Y = your_data_loader()
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
 num_class, activate = 2, 'softmax'
-weight_dir = 'pretrained_weights/VNet_Genesis_Chest_CT.h5'
+weight_dir = 'pretrained_weights/Genesis_Chest_CT.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
 models_genesis.load_weights(weight_dir)
