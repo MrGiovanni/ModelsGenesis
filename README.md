@@ -1,7 +1,6 @@
 <p align="center"><img width="60%" src="figures/logo.png" /></p>
 
 --------------------------------------------------------------------------------
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/MrGiovanni/ModelsGenesis/blob/master/LICENSE)
 
 We have built a set of pre-trained models called <b>Generic Autodidactic Models</b>, nicknamed <b>Models Genesis</b>, because they are created <i>ex nihilo</i> (with no manual labeling), self-taught (learned by self-supervision), and generic (served as source models for generating application-specific target models). We envision that Models Genesis may serve as a primary source of transfer learning for 3D medical imaging applications, in particular, with limited annotated data. 
 
