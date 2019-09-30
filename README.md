@@ -39,10 +39,9 @@ $ pip install -r requirements.txt
 ```
 
 ### 2. Download the pre-trained Models Genesis
-To download the pre-trained Models Genesis, request [here for users who can access Google](https://docs.google.com/forms/d/e/1FAIpQLScs-7dfti6s8g_4D6QvuPNFsSwJzrfPEMrGcQNU_Vq6elAf8Q/viewform?vc=0&c=0&w=1) or [here for users who cannot access Google](https://www.wjx.top/jq/46747127.aspx). You will receive a script `download_models_genesis.sh` within one business day. Run the script and the pre-trained Genesis Chest CT will be downloaded and saved into `./pretrained_weights/Genesis_Chest_CT.h5` directory.
-```bash
-$ bash ./download_models_genesis.sh
-```
+To download the pre-trained Models Genesis, first request [here](https://www.wjx.top/jq/46747127.aspx). 
+Afterwards, download the pre-trained Genesis Chest CT and save into `./pretrained_weights/Genesis_Chest_CT.h5` directory.
+
 
 ### 3. Fine-tune Models Genesis on your own target task
 Models Genesis learn a general-purpose image representation that can be leveraged for a wide range of target tasks. Specifically, Models Genesis can be utilized to initialize the encoder for the target <i>classification</i> tasks and to initialize the encoder-decoder for the target <i>segmentation</i> tasks.
