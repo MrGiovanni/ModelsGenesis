@@ -107,7 +107,7 @@ $ pip install -r requirements.txt
 ```
 
 ### 2. Create the data generator (LUNA-2016 for example)
-Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) or run the script below. The LUNA-2016 dataset will be automatically downloaded and saved into `./datasets/luna16` directory.
+Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) or run the script (`coming soon`) below. The LUNA-2016 dataset will be automatically downloaded and saved into `./datasets/luna16` directory.
 ```bash
 $ bash download_dataset.sh luna16
 ```
