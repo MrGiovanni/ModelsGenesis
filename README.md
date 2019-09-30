@@ -40,7 +40,7 @@ $ pip install -r requirements.txt
 
 ### 2. Download the pre-trained Models Genesis
 To download the pre-trained Models Genesis, first request [here](https://www.wjx.top/jq/46747127.aspx). 
-Afterwards, download the pre-trained Genesis Chest CT and save into `./pretrained_weights/Genesis_Chest_CT.h5` directory.
+After submitting the form, download the pre-trained Genesis Chest CT and save into `./pretrained_weights/Genesis_Chest_CT.h5` directory.
 
 
 ### 3. Fine-tune Models Genesis on your own target task
