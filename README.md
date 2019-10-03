@@ -93,6 +93,15 @@ models.compile(optimizer="adam", loss=dice_coef_loss, metrics=[mean_iou,dice_coe
 model.fit(X, Y)
 ```
 
+### 4. Major results from our work
+
+- Models Genesis outperform 3D models trained from scratch 
+- Models Genesis top any 2D approaches, including ImageNet models and degraded 2D Models Genesis
+- Learning from scratch simply in 3D may not necessarily yield performance better than ImageNet-based transfer learning in 2D
+- Models Genesis (2D) offer performances equivalent to supervised pretrained models
+
+<p align="center"><img width="100%" src="figures/results.png" /></p>
+
 <br/>
 
 # Learn Models Genesis from your own unlabeled data
