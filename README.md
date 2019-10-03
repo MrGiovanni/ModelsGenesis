@@ -101,7 +101,7 @@ model.fit(X, Y)
 
 <p align="center"><img width="100%" src="figures/results.png" /></p>
 
-Note that learning from scratch <i>simply<\i> in 3D may not necessarily yield performance better than ImageNet-based transfer learning in 2D
+Note that learning from scratch <i>simply</i> in 3D may not necessarily yield performance better than ImageNet-based transfer learning in 2D
 
 <br/>
 
