@@ -97,10 +97,11 @@ model.fit(X, Y)
 
 - Models Genesis outperform 3D models trained from scratch 
 - Models Genesis top any 2D approaches, including ImageNet models and degraded 2D Models Genesis
-- Learning from scratch simply in 3D may not necessarily yield performance better than ImageNet-based transfer learning in 2D
 - Models Genesis (2D) offer performances equivalent to supervised pretrained models
 
 <p align="center"><img width="100%" src="figures/results.png" /></p>
+
+Note that learning from scratch <i>simply<\i> in 3D may not necessarily yield performance better than ImageNet-based transfer learning in 2D
 
 <br/>
 
