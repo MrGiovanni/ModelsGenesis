@@ -155,13 +155,17 @@ Your pre-trained Models Genesis will be saved at `pretrained_weights/Vnet-genesi
 # Citation
 If you use this code or use our pre-trained weights for your research, please cite our [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf):
 ```
-@incollection{zhou2019models,
-  author = {Zhou, Zongwei and Sodha, Vatsal and Rahman Siddiquee, Md Mahfuzur and Feng, Ruibin and Tajbakhsh, Nima and Gotway, Michael and Liang, Jianming},
-  title = {Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis},
-  booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
-  month = {October},
-  year = {2019},
-  url = {http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf}
+@InProceedings{zhou2019models,
+  author="Zhou, Zongwei and Sodha, Vatsal and Rahman Siddiquee, Md Mahfuzur and Feng, Ruibin and Tajbakhsh, Nima and Gotway, Michael B. and Liang, Jianming",
+  editor="Shen, Dinggang and Liu, Tianming and Peters, Terry M. and Staib, Lawrence H. and Essert, Caroline and Zhou, Sean and Yap, Pew-Thian and Khan, Ali",
+  title="Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis",
+  booktitle="Medical Image Computing and Computer Assisted Intervention -- MICCAI 2019",
+  year="2019",
+  publisher="Springer International Publishing",
+  address="Cham",
+  pages="384--393",
+  isbn="978-3-030-32251-9",
+  url = "http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf"
 }
 ```
 
