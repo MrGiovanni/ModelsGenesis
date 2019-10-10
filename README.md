@@ -157,7 +157,6 @@ If you use this code or use our pre-trained weights for your research, please ci
 ```
 @InProceedings{zhou2019models,
   author="Zhou, Zongwei and Sodha, Vatsal and Rahman Siddiquee, Md Mahfuzur and Feng, Ruibin and Tajbakhsh, Nima and Gotway, Michael B. and Liang, Jianming",
-  editor="Shen, Dinggang and Liu, Tianming and Peters, Terry M. and Staib, Lawrence H. and Essert, Caroline and Zhou, Sean and Yap, Pew-Thian and Khan, Ali",
   title="Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis",
   booktitle="Medical Image Computing and Computer Assisted Intervention -- MICCAI 2019",
   year="2019",
