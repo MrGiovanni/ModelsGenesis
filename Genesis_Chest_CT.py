@@ -38,7 +38,6 @@ import numpy as np
 from tqdm import tqdm
 from scipy.misc import comb
 from sklearn import metrics
-from utils.BilinearUpSampling import *
 from unet3d import *
 from keras.callbacks import LambdaCallback, TensorBoard
 from skimage.transform import resize

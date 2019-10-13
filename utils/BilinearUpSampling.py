@@ -18,9 +18,9 @@ def resize_images_bilinear(X, height_factor=1, width_factor=1, target_height=Non
         else:
             new_shape = tf.shape(X)[2:]
             new_shape *= tf.constant(np.array([height_factor, width_factor]).astype('int32'))
-        X = permute_dimensions(X, [0, 2, 3, 1])
+        X = K.permute_dimensions(X, [0, 2, 3, 1])
         X = tf.image.resize_bilinear(X, new_shape)
-        X = permute_dimensions(X, [0, 3, 1, 2])
+        X = K.permute_dimensions(X, [0, 3, 1, 2])
         if target_height and target_width:
             X.set_shape((None, None, target_height, target_width))
         else:
