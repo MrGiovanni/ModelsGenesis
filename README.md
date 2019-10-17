@@ -164,7 +164,7 @@ If you use this code or use our pre-trained weights for your research, please ci
   address="Cham",
   pages="384--393",
   isbn="978-3-030-32251-9",
-  url = "http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf"
+  url="http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf"
 }
 ```
 
