@@ -117,12 +117,19 @@ $ pip install -r requirements.txt
 ```
 
 ### 2. Create the data generator (LUNA-2016 for example)
-Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) or run the script (`coming soon`) below. The LUNA-2016 dataset will be automatically downloaded and saved into `./datasets/luna16` directory.
+
+#### For your convenience, we have provided our own extracted 3D cubes from LUNA16. 
+
+Download from [Google Drive](https://drive.google.com/drive/folders/1ZEQHc4FLFHK204UJ1iABQVrjQOFmx_gX?usp=sharing) or Baidu Wangpan (`coming soon`). Each sub-folder is named as 'bat_N_s_64x64x32', where *N* denotes the number of cubes extracted from each patient. You may select the scale of training samples accordingly based on your resources in hand: larger *N* demands longer learning time and more powerful GPUs/CPUs, while may (or may not) results in a more generic visual representation. We have adopted *N*=32 in our MICCAI paper. 
+
+#### You can also extract 3D cubes by your own following two steps below:
+
+2.1 Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) or run the script (`coming soon`) below. The LUNA-2016 dataset will be automatically downloaded and saved into `./datasets/luna16` directory.
 ```bash
 $ bash download_dataset.sh luna16
 ```
 
-Extract 3D cubes from the patient data by running the script below. The extracted 3D cubes will be saved into `./generated_cubes` directory.
+2.3 Extract 3D cubes from the patient data by running the script below. The extracted 3D cubes will be saved into `./generated_cubes` directory.
 ```bash
 for subset in `seq 0 9`
 do
