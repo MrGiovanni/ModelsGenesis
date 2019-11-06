@@ -120,7 +120,7 @@ $ pip install -r requirements.txt
 
 #### For your convenience, we have provided our own extracted 3D cubes from LUNA16. 
 
-Download from [Google Drive](https://drive.google.com/drive/folders/1ZEQHc4FLFHK204UJ1iABQVrjQOFmx_gX?usp=sharing) or Baidu Wangpan (`coming soon`). Each sub-folder is named as 'bat_N_s_64x64x32', where *N* denotes the number of cubes extracted from each patient. You may select the scale of training samples accordingly based on your resources in hand: larger *N* demands longer learning time and more powerful GPUs/CPUs, while may (or may not) results in a more generic visual representation. We have adopted *N*=32 in our MICCAI paper. 
+Download from [Google Drive](https://drive.google.com/drive/folders/1ZEQHc4FLFHK204UJ1iABQVrjQOFmx_gX?usp=sharing) or Baidu Wangpan (`coming soon`). Each sub-folder is named as 'bat_N_s_64x64x32', where *N* denotes the number of cubes extracted from each patient. You may select the scale of training samples accordingly based on your resources in hand: larger *N* demands longer learning time and more powerful GPUs/CPUs, while may (or may not) result in a more generic visual representation. We have adopted *N*=32 in our MICCAI paper. 
 
 #### You can also extract 3D cubes by your own following two steps below:
 
