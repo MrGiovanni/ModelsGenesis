@@ -3,6 +3,7 @@ from keras import backend as K
 from keras.engine import Input, Model
 from keras.layers import Conv3D, MaxPooling3D, UpSampling3D, Activation, BatchNormalization, PReLU, Deconvolution3D
 from keras.optimizers import Adam
+K.set_image_data_format("channels_first")
 
 try:
     from keras.engine import merge
@@ -12,7 +13,6 @@ except ImportError:
 
 def unet_model_3d(input_shape, pool_size=(2, 2, 2), n_labels=1, deconvolution=False,
                   depth=4, n_base_filters=32, batch_normalization=False, activation_name="sigmoid"):
-    K.set_image_data_format("channels_first")
     """
     Builds the 3D UNet Keras model.f
     :param metrics: List metrics to be calculated during model training (default is dice coefficient).
