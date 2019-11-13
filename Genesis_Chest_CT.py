@@ -324,7 +324,7 @@ def step_decay(epoch):
     
     initial_lrate = config.lr
     drop = 0.5
-    epochs_drop = int(config.patience * 0.8)
+    epochs_drop = int(config.patience * 0.2)
     lrate = initial_lrate * math.pow(drop, math.floor((1+epoch)/epochs_drop))
     
     return lrate
