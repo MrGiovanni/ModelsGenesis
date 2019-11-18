@@ -347,7 +347,7 @@ def generate_pair(img, batch_size, status="test"):
                     x[n] = image_out_painting(x[n])
 
         # Save sample images module
-        if config.save_samples is not None and status == "train" and random.random() < 1:
+        if config.save_samples is not None and status == "train" and random.random() < 0.01:
             n_sample = random.choice( [i for i in range(config.batch_size)] )
             sample_1 = np.concatenate((x[n_sample,0,:,:,2*img_deps//6], y[n_sample,0,:,:,2*img_deps//6]), axis=1)
             sample_2 = np.concatenate((x[n_sample,0,:,:,3*img_deps//6], y[n_sample,0,:,:,3*img_deps//6]), axis=1)
