@@ -29,10 +29,12 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # or any {'0', '1', '2'}
 
 
 import copy
+import scipy
 import sys
 import math
 import random
 import shutil
+import string
 import numpy as np
 
 from tqdm import tqdm
@@ -61,6 +63,7 @@ parser.add_option("--scale", dest="scale", help="the scale of pre-trained data",
 parser.add_option("--optimizer", dest="optimizer", help="SGD | Adam", default="Adam", type="string")
 parser.add_option("--data", dest="data", help="the address of data cube", default=None, type="string")
 parser.add_option("--workers", dest="workers", help="number of CPU cores", default=8, type="int")
+parser.add_option("--save_samples", dest="save_samples", help="None | png | jpg", default="png", type="string")
 
 parser.add_option("--nonlinear_rate", dest="nonlinear_rate", help="chance to perform nonlinear", default=0.9, type="float")
 parser.add_option("--paint_rate", dest="paint_rate", help="chance to perform painting", default=0.9, type="float")
@@ -82,6 +85,9 @@ if not os.path.exists(model_path):
 logs_path = os.path.join(model_path, "Logs")
 if not os.path.exists(logs_path):
     os.makedirs(logs_path)
+sample_path = "pair_samples"
+if not os.path.exists(sample_path):
+    os.makedirs(sample_path)
     
 class setup_config():
     nb_epoch = 10000
@@ -109,6 +115,7 @@ class setup_config():
                  workers=2,
                  optimizer=None,
                  DATA_DIR=None,
+                 save_samples=None,
                 ):
         self.model = model
         self.exp_name = model + "-" + note
@@ -127,6 +134,7 @@ class setup_config():
         self.optimizer = optimizer
         self.workers = workers
         self.DATA_DIR = DATA_DIR
+        self.save_samples = save_samples
         self.max_queue_size = self.workers * 4
         if nb_class > 1:
             self.activation = "softmax"
@@ -157,8 +165,12 @@ config = setup_config(model=options.arch,
                       optimizer=options.optimizer,
                       DATA_DIR=options.data,
                       workers=options.workers,
+                      save_samples=options.save_samples,
                      )
 config.display()
+shutil.rmtree(os.path.join(sample_path, config.exp_name), ignore_errors=True)
+if not os.path.exists(os.path.join(sample_path, config.exp_name)):
+    os.makedirs(os.path.join(sample_path, config.exp_name))
 
 # In[2]:
 
@@ -254,39 +266,57 @@ def local_pixel_shuffling(x, prob=0.5):
 
 def image_in_painting(x):
     _, img_rows, img_cols, img_deps = x.shape
-    block_noise_size_x = random.randint(10, 20)
-    block_noise_size_y = random.randint(10, 20)
-    block_noise_size_z = random.randint(10, 20)
-    noise_x = random.randint(3, img_rows-block_noise_size_x-3)
-    noise_y = random.randint(3, img_cols-block_noise_size_y-3)
-    noise_z = random.randint(3, img_deps-block_noise_size_z-3)
-    x[:, 
-      noise_x:noise_x+block_noise_size_x, 
-      noise_y:noise_y+block_noise_size_y, 
-      noise_z:noise_z+block_noise_size_z] = random.random()
+    cnt = 5
+    while cnt > 0 and random.random() < 0.95:
+        block_noise_size_x = random.randint(img_rows//6, img_rows//3)
+        block_noise_size_y = random.randint(img_cols//6, img_cols//3)
+        block_noise_size_z = random.randint(img_deps//6, img_deps//3)
+        noise_x = random.randint(3, img_rows-block_noise_size_x-3)
+        noise_y = random.randint(3, img_cols-block_noise_size_y-3)
+        noise_z = random.randint(3, img_deps-block_noise_size_z-3)
+        x[:, 
+          noise_x:noise_x+block_noise_size_x, 
+          noise_y:noise_y+block_noise_size_y, 
+          noise_z:noise_z+block_noise_size_z] = np.random.rand(block_noise_size_x, 
+                                                               block_noise_size_y, 
+                                                               block_noise_size_z, ) * 1.0
     return x
 
 def image_out_painting(x):
     _, img_rows, img_cols, img_deps = x.shape
-    block_noise_size_x = img_rows - random.randint(10, 20)
-    block_noise_size_y = img_cols - random.randint(10, 20)
-    block_noise_size_z = img_deps - random.randint(10, 20)
+    image_temp = copy.deepcopy(x)
+    x = np.random.rand(x.shape[0], x.shape[1], x.shape[2], x.shape[3], ) * 1.0
+    block_noise_size_x = img_rows - random.randint(3*img_rows//7, 4*img_rows//7)
+    block_noise_size_y = img_cols - random.randint(3*img_cols//7, 4*img_cols//7)
+    block_noise_size_z = img_deps - random.randint(3*img_deps//7, 4*img_deps//7)
     noise_x = random.randint(3, img_rows-block_noise_size_x-3)
     noise_y = random.randint(3, img_cols-block_noise_size_y-3)
     noise_z = random.randint(3, img_deps-block_noise_size_z-3)
-    image_temp = copy.deepcopy(x)
-    x = np.random.rand(x.shape[0], x.shape[1], x.shape[2], x.shape[3], ) * 1.0
     x[:, 
       noise_x:noise_x+block_noise_size_x, 
       noise_y:noise_y+block_noise_size_y, 
       noise_z:noise_z+block_noise_size_z] = image_temp[:, noise_x:noise_x+block_noise_size_x, 
-                                                          noise_y:noise_y+block_noise_size_y, 
-                                                          noise_z:noise_z+block_noise_size_z]
+                                                       noise_y:noise_y+block_noise_size_y, 
+                                                       noise_z:noise_z+block_noise_size_z]
+    cnt = 4
+    while cnt > 0 and random.random() < 0.95:
+        block_noise_size_x = img_rows - random.randint(3*img_rows//7, 4*img_rows//7)
+        block_noise_size_y = img_cols - random.randint(3*img_cols//7, 4*img_cols//7)
+        block_noise_size_z = img_deps - random.randint(3*img_deps//7, 4*img_deps//7)
+        noise_x = random.randint(3, img_rows-block_noise_size_x-3)
+        noise_y = random.randint(3, img_cols-block_noise_size_y-3)
+        noise_z = random.randint(3, img_deps-block_noise_size_z-3)
+        x[:, 
+          noise_x:noise_x+block_noise_size_x, 
+          noise_y:noise_y+block_noise_size_y, 
+          noise_z:noise_z+block_noise_size_z] = image_temp[:, noise_x:noise_x+block_noise_size_x, 
+                                                           noise_y:noise_y+block_noise_size_y, 
+                                                           noise_z:noise_z+block_noise_size_z]
     return x
                 
 
 
-def generate_pair(img, batch_size):
+def generate_pair(img, batch_size, status="test"):
     img_rows, img_cols, img_deps = img.shape[2], img.shape[3], img.shape[4]
     while True:
         index = [i for i in range(img.shape[0])]
@@ -315,6 +345,19 @@ def generate_pair(img, batch_size):
                 else:
                     # Outpainting
                     x[n] = image_out_painting(x[n])
+
+        # Save sample images module
+        if config.save_samples is not None and status == "train" and random.random() < 1:
+            n_sample = random.choice( [i for i in range(config.batch_size)] )
+            sample_1 = np.concatenate((x[n_sample,0,:,:,2*img_deps//6], y[n_sample,0,:,:,2*img_deps//6]), axis=1)
+            sample_2 = np.concatenate((x[n_sample,0,:,:,3*img_deps//6], y[n_sample,0,:,:,3*img_deps//6]), axis=1)
+            sample_3 = np.concatenate((x[n_sample,0,:,:,4*img_deps//6], y[n_sample,0,:,:,4*img_deps//6]), axis=1)
+            sample_4 = np.concatenate((x[n_sample,0,:,:,5*img_deps//6], y[n_sample,0,:,:,5*img_deps//6]), axis=1)
+            final_sample = np.concatenate((sample_1, sample_2, sample_3, sample_4), axis=0)
+            scipy.misc.imsave(os.path.join(sample_path, config.exp_name, 
+                                           ''.join([random.choice(string.ascii_letters + string.digits) for n in range(10)])+'.'+config.save_samples), 
+                              final_sample)
+
         yield (x, y)
 
 
@@ -324,7 +367,7 @@ def step_decay(epoch):
     
     initial_lrate = config.lr
     drop = 0.5
-    epochs_drop = int(config.patience * 0.8)
+    epochs_drop = int(config.patience * 0.2)
     lrate = initial_lrate * math.pow(drop, math.floor((1+epoch)/epochs_drop))
     
     return lrate
@@ -396,8 +439,8 @@ else:
 while config.batch_size > 1:
     # To find a largest batch size that can be fit into GPU
     try:
-        model.fit_generator(generate_pair(x_train, config.batch_size),
-                            validation_data=generate_pair(x_valid, config.batch_size), 
+        model.fit_generator(generate_pair(x_train, config.batch_size, status="train"),
+                            validation_data=generate_pair(x_valid, config.batch_size, status="test"), 
                             validation_steps=int(2.0*x_valid.shape[0]//config.batch_size),
                             steps_per_epoch=x_train.shape[0]//config.batch_size, 
                             epochs=config.nb_epoch,
