@@ -240,7 +240,7 @@ def local_pixel_shuffling(x, prob=0.5):
     image_temp = copy.deepcopy(x)
     orig_image = copy.deepcopy(x)
     _, img_rows, img_cols, img_deps = x.shape
-    num_block = 500
+    num_block = 10000
     for _ in range(num_block):
         block_noise_size_x = random.randint(1, img_rows//10)
         block_noise_size_y = random.randint(1, img_cols//10)
