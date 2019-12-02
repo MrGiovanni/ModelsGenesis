@@ -142,12 +142,12 @@ generated_cubes/
 
 #### You can also extract 3D cubes by your own following two steps below:
 
-Step 1: Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) or run the script (`coming soon`) below. The LUNA-2016 dataset will be automatically downloaded and saved into `./datasets/luna16` directory.
+**Step 1**: Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) or run the script (`coming soon`) below. The LUNA-2016 dataset will be automatically downloaded and saved into `./datasets/luna16` directory.
 ```bash
 $ bash download_dataset.sh luna16
 ```
 
-Step 2: Extract 3D cubes from the patient data by running the script below. The extracted 3D cubes will be saved into `./generated_cubes` directory.
+**Step 2**: Extract 3D cubes from the patient data by running the script below. The extracted 3D cubes will be saved into `./generated_cubes` directory.
 ```bash
 for subset in `seq 0 9`
 do
