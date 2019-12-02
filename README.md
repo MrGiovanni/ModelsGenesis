@@ -100,7 +100,9 @@ model.fit(X, Y)
 
 - Models Genesis outperform 3D models trained from scratch 
 - Models Genesis top any 2D approaches, including ImageNet models and degraded 2D Models Genesis
-- Models Genesis (2D) offer performances equivalent to supervised pretrained models
+- Models Genesis (2D) offer performances equivalent to supervised pre-trained models
+
+The par plots presented below are produced by Matlab code in `figures/plotsuperbar.m` and helper functions in `figures/superbar`. Credit to [superbar](https://github.com/scottclowe/superbar) by Scott Lowe.
 
 <p align="center"><img width="90%" src="figures/results.png" /></p>
 
