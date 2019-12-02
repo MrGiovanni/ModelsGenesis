@@ -65,11 +65,8 @@ superbar(Y, 'E', E, 'P', P, 'BarFaceColor', C, 'Orientation', 'v', ...
     'PStarLatex', 'off', 'PStarIcon', char(10033), ...
     'BarWidth', 0.95, 'PLineWidth', 3, 'BarLineWidth', 3);
 
-% Need to change fontsize
-
 xlim([0.5 length(target_name)+0.5]);
 ylim([60 108]);
-% grid on;
 ax = gca;
 ax.YGrid = 'on';
 ax.GridLineStyle = '-';
@@ -155,11 +152,8 @@ superbar(Y, 'E', E, 'P', P, 'BarFaceColor', C, 'Orientation', 'v', ...
     'PStarLatex', 'off', 'PStarIcon', char(10033), ...
     'BarWidth', 0.95, 'PLineWidth', 3, 'BarLineWidth', 3);
 
-% Need to change fontsize
-
 xlim([0.5 length(target_name)+0.5]);
 ylim([60 108]);
-% grid on;
 ax = gca;
 ax.YGrid = 'on';
 ax.GridLineStyle = '-';
@@ -176,7 +170,6 @@ ht = text(1.75, 96, ...
           'EdgeColor', 'k', 'LineWidth', LineWidth*0.6, 'FontSize', font_size*0.75, ...
           'BackgroundColor', 'w', 'FontName', 'times');
 set(gca, 'xtick', 1:length(target_name), 'xticklabel',target_name, 'FontSize', font_size);
-% set(gca, 'XTick', {'lung nodule FPR', 'lung nodule SEG'});
 set(gca, 'YTick', 60:10:100);
 ylabel('Performance'); xlabel('Target Tasks'); title('Genesis Chest X-ray (2D)');
 set(gca,'fontname','times', 'LooseInset',get(gca,'TightInset'))  % Set it to times
