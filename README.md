@@ -94,7 +94,14 @@ models.compile(optimizer="adam", loss=dice_coef_loss, metrics=[mean_iou,dice_coe
 model.fit(X, Y)
 ```
 
-**Prepare your own data:** If the image modality in your target task is CT, we suggest that all the intensity values be clipped on the min (-1000) and max (+1000) interesting Hounsfield Unit range and then scale between 0 and 1. If the image modality is MRI, we suggest that all the intensity values be clipped on min (0) and max (+4000) interesting range and then scale between 0 and 1. For any other modalities, you may want to first clip on the meaningful intensity range and then scale between 0 and 1. We adopt input cubes shaped in (N, 1, 64, 64, 32) during model pre-training, where N denotes the number of training samples, although any size is acceptable as long as it is divisible by 16 (=2^4) due to four down-sampling layers in V-Net.
+**Prepare your own data:** If the image modality in your target task is CT, we suggest that all the intensity values be clipped on the min (-1000) and max (+1000) interesting Hounsfield Unit range and then scale between 0 and 1. If the image modality is MRI, we suggest that all the intensity values be clipped on min (0) and max (+4000) interesting range and then scale between 0 and 1. For any other modalities, you may want to first clip on the meaningful intensity range and then scale between 0 and 1. 
+
+We adopt input cubes shaped in (N, 1, 64, 64, 32) during model pre-training, where N denotes the number of training samples。 When fine-tuning the pre-trained Models Genesis, **any arbitrary input size** is acceptable as long as it is divisible by 16 (=2^4) due to four down-sampling layers in V-Net. That said, to segment larger objects, such as liver, kidney, or big nodule :-( you may want to try
+```python
+input_channels, input_rows, input_cols, input_deps = 1, 128, 128, 64
+input_channels, input_rows, input_cols, input_deps = 1, 160, 160, 96
+```
+or even larger input size as you wish.
 
 ### 4. Major results from our work
 
