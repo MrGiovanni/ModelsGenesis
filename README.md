@@ -109,7 +109,7 @@ or even larger input size as you wish.
 - Models Genesis top any 2D approaches, including ImageNet models and degraded 2D Models Genesis
 - Models Genesis (2D) offer performances equivalent to supervised pre-trained models
 
-The par plots presented below are produced by Matlab code in `figures/plotsuperbar.m` and helper functions in `figures/superbar`. Credit to [superbar](https://github.com/scottclowe/superbar) by Scott Lowe.
+The par plots presented below are produced by Matlab code in `figures/plotsuperbar.m` and the helper functions in `figures/superbar`. Credit to [superbar](https://github.com/scottclowe/superbar) by Scott Lowe.
 
 <p align="center"><img width="90%" src="figures/results.png" /></p>
 
