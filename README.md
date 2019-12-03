@@ -79,7 +79,7 @@ X, Y = your_data_loader()
 # prepare the 3D model
 from unet3d import *
 input_channels, input_rows, input_cols, input_deps = 1, 64, 64, 32
-num_class, activate = 2, keras.activations.softmax
+num_class = 2
 weight_dir = 'pretrained_weights/Genesis_Chest_CT.h5'
 models_genesis = unet_model_3d((input_channels, input_rows, input_cols, input_deps), batch_normalization=True)
 print("Load pre-trained Models Genesis weights from {}".format(weight_dir))
