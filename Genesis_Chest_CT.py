@@ -45,6 +45,7 @@ from keras.callbacks import LambdaCallback, TensorBoard
 from skimage.transform import resize
 from optparse import OptionParser
 from keras.utils import plot_model
+from keras_lr_finder import LRFinder
 
 sys.setrecursionlimit(40000)
 
@@ -439,6 +440,14 @@ else:
 while config.batch_size > 1:
     # To find a largest batch size that can be fit into GPU
     try:
+        lr_finder = LRFinder(model)
+        lr_finder.find_generator(generate_pair(x_train, config.batch_size, status="train"), 
+                                 start_lr=0.00001, end_lr=2, epochs=5,
+                                 steps_per_epoch=x_train.shape[0]//config.batch_size,
+                                )
+        print("\n\nBest learning rate = {}".format(lr_finder.get_best_lr(sma=20)))
+        K.set_value(model.optimizer.lr, lr_finder.get_best_lr(sma=20))
+
         model.fit_generator(generate_pair(x_train, config.batch_size, status="train"),
                             validation_data=generate_pair(x_valid, config.batch_size, status="test"), 
                             validation_steps=int(2.0*x_valid.shape[0]//config.batch_size),
@@ -451,6 +460,7 @@ while config.batch_size > 1:
                             verbose=config.verbose, 
                             callbacks=callbacks,
                            )
+        
         break
     except tf.errors.ResourceExhaustedError as e:
         config.batch_size = int(config.batch_size - 2)
