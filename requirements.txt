@@ -1,4 +1,4 @@
-tensorflow-gpu==1.4.0
+tensorflow-gpu==1.15.0
 keras==2.1.3
 tqdm
 sklearn
