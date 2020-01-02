@@ -213,7 +213,7 @@ cube = get_self_learning_data([fold], config)
 print("cube: {} | {:.2f} ~ {:.2f}".format(cube.shape, np.min(cube), np.max(cube)))
 np.save(os.path.join(options.save, 
                      "bat_"+str(config.scale)+
-                     "_"+str(config.input_rows)+
+                     "_s_"+str(config.input_rows)+
                      "x"+str(config.input_cols)+
                      "x"+str(config.input_deps)+
                      "_"+str(fold)+".npy"), 
