@@ -8,9 +8,9 @@ class models_genesis_config:
     
     # data
     data = "/mnt/dataset/shared/zongwei/LUNA16/Self_Learning_Cubes"
-    train_fold=[0,1,2,3,4,7,8]
+    train_fold=[0,1,2,3,4]
     valid_fold=[5,6]
-    test_fold=[9]
+    test_fold=[7,8,9]
     hu_min = -1000.0
     hu_max = 1000.0
     scale = 32
