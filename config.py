@@ -7,7 +7,7 @@ class models_genesis_config:
     exp_name = model + "-" + suffix
     
     # data
-    data = "/mnt/dataset/shared/zongwei/LUNA16/Self_Learning_Cubes_64x64x64"
+    data = "/mnt/dataset/shared/zongwei/LUNA16/Self_Learning_Cubes"
     train_fold=[0,1,2,3,4,7,8]
     valid_fold=[5,6]
     test_fold=[9]
@@ -16,7 +16,7 @@ class models_genesis_config:
     scale = 32
     input_rows = 64
     input_cols = 64 
-    input_deps = 64
+    input_deps = 32
     nb_class = 1
     
     # model pre-training
