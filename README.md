@@ -169,17 +169,7 @@ done
 
 ### 3. Pre-train Models Genesis (LUNA-2016 for example)
 ```bash
-CUDA_VISIBLE_DEVICES=0 python -W ignore Genesis_Chest_CT.py \
---note genesis_chest_ct \
---arch Vnet \
---input_rows 64 \
---input_cols 64 \
---input_deps 32 \
---nb_class 1 \
---verbose 1 \
---batch_size 16 \
---scale 32 \
---data generated_cubes
+python -W ignore Genesis_Chest_CT.py
 ```
 Your pre-trained Models Genesis will be saved at `pretrained_weights/Vnet-genesis_chest_ct.h5`.
 
