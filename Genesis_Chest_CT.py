@@ -13,7 +13,10 @@ import keras
 print("keras = {}".format(keras.__version__))
 import tensorflow as tf
 print("tensorflow-gpu = {}".format(tf.__version__))
-tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+try:
+    tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+except:
+    pass
 
 import shutil
 import numpy as np
