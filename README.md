@@ -25,7 +25,7 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 # Dependencies
 
 + Linux
-+ Python 2.7
++ Python 2.7+
 + Keras 2.1.3
 + TensorFlow 1.4.0
 
