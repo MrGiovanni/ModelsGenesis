@@ -10,7 +10,7 @@ We have built a set of pre-trained models called <b>Generic Autodidactic Models<
 <br/>
 
 # Paper
-This repository provides the official Keras implementation of training Models Genesis as well as the usage of the pre-trained Models Genesis in the following paper:
+This repository provides the official Keras and PyTorch implementation of training Models Genesis as well as the usage of the pre-trained Models Genesis in the following paper:
 
 <b>Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis</b> <br/>
 [Zongwei Zhou](https://www.zongweiz.com/)<sup>1</sup>, [Vatsal Sodha](https://github.com/vatsal-sodha)<sup>1</sup>, [Md Mahfuzur Rahman Siddiquee](https://github.com/mahfuzmohammad)<sup>1</sup>,  <br/>
@@ -26,8 +26,13 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 
 + Linux
 + Python 2.7+
-+ Keras 2.1.3
-+ TensorFlow 1.4.0
+
+### Keras users
++ Keras 2.2.4+
++ TensorFlow 1.14.0
+
+### PyTorch users
++ 
 
 # Usage of the pre-trained Models Genesis
 

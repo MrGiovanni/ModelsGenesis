@@ -2,7 +2,7 @@ import os
 import shutil
 
 class models_genesis_config:
-    model = "Vnet"
+    model = "Unet3D"
     suffix = "genesis_chest_ct"
     exp_name = model + "-" + suffix
     
@@ -29,7 +29,7 @@ class models_genesis_config:
     save_samples = "png"
     nb_epoch = 10000
     patience = 50
-    lr = 1e0
+    lr = 1
 
     # image deformation
     nonlinear_rate = 0.9
@@ -40,18 +40,12 @@ class models_genesis_config:
     flip_rate = 0.4
     
     # logs
-    model_path = "pretrained_weights"
+    model_path = "pretrained_pytorch_weights"
     if not os.path.exists(model_path):
         os.makedirs(model_path)
     logs_path = os.path.join(model_path, "Logs")
     if not os.path.exists(logs_path):
         os.makedirs(logs_path)
-    sample_path = "pair_samples"
-    if not os.path.exists(sample_path):
-        os.makedirs(sample_path)
-    shutil.rmtree(os.path.join(sample_path, exp_name), ignore_errors=True)
-    if not os.path.exists(os.path.join(sample_path, exp_name)):
-        os.makedirs(os.path.join(sample_path, exp_name))
     
     def display(self):
         """Display Configuration values."""

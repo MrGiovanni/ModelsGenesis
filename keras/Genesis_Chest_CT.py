@@ -26,7 +26,7 @@ from utils import *
 from unet3d import *
 from keras.callbacks import LambdaCallback,TensorBoard,ReduceLROnPlateau
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 conf = models_genesis_config()
 conf.display()
