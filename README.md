@@ -32,7 +32,7 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 + TensorFlow 1.14.0
 
 ### PyTorch users
-+ 
++ PyTorch 1.3.1
 
 # Usage of the pre-trained Models Genesis
 
@@ -45,7 +45,7 @@ $ pip install -r requirements.txt
 
 ### 2. Download the pre-trained Models Genesis
 To download the pre-trained Models Genesis, first request [here](https://www.wjx.top/jq/46747127.aspx). 
-After submitting the form, download the pre-trained Genesis Chest CT and save into `./pretrained_weights/Genesis_Chest_CT.h5` directory.
+After submitting the form, download the pre-trained Genesis Chest CT and save into `./pretrained_weights/Genesis_Chest_CT.h5` (keras weights) and `./pretrained_weights/Genesis_Chest_CT.pt` (pytorch weights) directory.
 
 
 ### 3. Fine-tune Models Genesis on your own target task
