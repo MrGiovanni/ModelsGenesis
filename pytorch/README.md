@@ -10,7 +10,6 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 <b>[Young Scientist Award](http://www.miccai.org/about-miccai/awards/young-scientist-award/)</b>  <br/>
 [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://docs.wixstatic.com/ugd/deaea1_c5e0f8cd9cde4c3db339d866483cbcd3.pdf) | [poster](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/Models_Genesis_Poster.pdf) | talk ([YouTube](https://youtu.be/5W_uGzBloZs), [YouKu](https://v.youku.com/v_show/id_XNDM5NjQ1ODAxMg==.html?sharefrom=iphone&sharekey=496e1494c76ed263653aa3aada61c23e6))
 
-<br/>
 
 # Dependencies
 
@@ -18,7 +17,6 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 + Python 2.7+
 + PyTorch 1.3.1
 
-<br/>
 
 # Usage of the pre-trained Models Genesis
 
@@ -66,7 +64,6 @@ input_channels, input_rows, input_cols, input_deps = 1, 160, 160, 96
 ```
 or even larger input size as you wish.
 
-<br/>
 
 # Learn Models Genesis from your own unlabeled data
 
@@ -120,8 +117,6 @@ python -W ignore pytorch/Genesis_Chest_CT.py
 ```
 Your pre-trained Models Genesis will be saved at `./pytorch/pretrained_weights/Vnet-genesis_chest_ct.pt`.
 
-<br/>
-
 
 # Citation
 If you use this code or use our pre-trained weights for your research, please cite our [paper](https://link.springer.com/chapter/10.1007/978-3-030-32251-9_42):
@@ -139,7 +134,6 @@ If you use this code or use our pre-trained weights for your research, please ci
 }
 ```
 
-<br/>
 
 # Acknowledgement
 This research has been supported partially by ASU and Mayo Clinic through a Seed Grant and an Innovation Grant, and partially by NIH under Award Number R01HL128785. The content is solely the responsibility of the authors and does not necessarily represent the official views of NIH.
