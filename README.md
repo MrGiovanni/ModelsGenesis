@@ -8,7 +8,7 @@ We have built a set of pre-trained models called <b>Generic Autodidactic Models<
 <p align="center"><img width="85%" src="figures/framework.png" /></p>
 
 
-# Paper
+## Paper
 This repository provides the official implementation of training Models Genesis as well as the usage of the pre-trained Models Genesis in the following paper:
 
 <b>Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis</b> <br/>
@@ -20,13 +20,13 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://docs.wixstatic.com/ugd/deaea1_c5e0f8cd9cde4c3db339d866483cbcd3.pdf) | [poster](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/Models_Genesis_Poster.pdf) | talk ([YouTube](https://youtu.be/5W_uGzBloZs), [YouKu](https://v.youku.com/v_show/id_XNDM5NjQ1ODAxMg==.html?sharefrom=iphone&sharekey=496e1494c76ed263653aa3aada61c23e6))
 
 
-# Available implementation
+## Available implementation
 
 - keras/
 - pytorch/
 
 
-# Major results from our work
+## Major results from our work
 
 - Models Genesis outperform 3D models trained from scratch 
 - Models Genesis top any 2D approaches, including ImageNet models and degraded 2D Models Genesis
@@ -39,7 +39,7 @@ The par plots presented below are produced by Matlab code in `figures/plotsuperb
 Note that learning from scratch <i>simply</i> in 3D may not necessarily yield performance better than ImageNet-based transfer learning in 2D
 
 
-# Citation
+## Citation
 If you use this code or use our pre-trained weights for your research, please cite our [paper](https://link.springer.com/chapter/10.1007/978-3-030-32251-9_42):
 ```
 @InProceedings{zhou2019models,
@@ -56,5 +56,5 @@ If you use this code or use our pre-trained weights for your research, please ci
 ```
 
 
-# Acknowledgement
+## Acknowledgement
 This research has been supported partially by ASU and Mayo Clinic through a Seed Grant and an Innovation Grant, and partially by NIH under Award Number R01HL128785. The content is solely the responsibility of the authors and does not necessarily represent the official views of NIH.
