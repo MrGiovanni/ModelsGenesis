@@ -40,7 +40,7 @@ class models_genesis_config:
     flip_rate = 0.4
     
     # logs
-    model_path = "pretrained_pytorch_weights"
+    model_path = "pretrained_weights"
     if not os.path.exists(model_path):
         os.makedirs(model_path)
     logs_path = os.path.join(model_path, "Logs")
