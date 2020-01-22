@@ -19,6 +19,8 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 + Keras 2.2.4+
 + TensorFlow 1.14.0
 
+<br/>
+
 # Usage of the pre-trained Models Genesis
 
 ### 1. Clone the repository

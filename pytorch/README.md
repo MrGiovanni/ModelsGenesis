@@ -18,6 +18,8 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 + Python 2.7+
 + PyTorch 1.3.1
 
+<br/>
+
 # Usage of the pre-trained Models Genesis
 
 ### 1. Clone the repository
