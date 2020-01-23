@@ -57,11 +57,19 @@ class TargetNet(nn.Module):
         self.out_glb_avg_pool = F.avg_pool3d(self.base_out, kernel_size=self.base_out.size()[2:]).view(self.base_out.size( [0],-1)
         self.linear_out = self.dense_1(self.out_glb_avg_pool)
         final_out = self.dense_2( F.relu(self.linear_out))
-        
         return final_out
         
+base_model = unet3d.UNet3D()
 
-target_model = TargetNet(unet3d.UNet3D())
+#Load pre-trained weights
+weight_dir = 'pretrained_pytorch_weights/Genesis_Chest_CT.h5'
+checkpoint = torch.load(weight_dir)
+state_dict = checkpoint['state_dict']
+unParalled_state_dict = {}
+for key in state_dict.keys():
+    unParalled_state_dict[key.replace("module.", "")] = state_dict[key]
+base_model.load_state_dict(unParalled_state_dict)
+target_model = TargetNet(base_model)
 target_model.to(device)
 target_model = nn.DataParallel(target_model, device_ids = [i for i in range(torch.cuda.device_count())])
 criterion = nn.BCELoss()
@@ -89,6 +97,16 @@ train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=Tr
 # prepare the 3D model
 
 model = unet3d.UNet3D()
+
+#Load pre-trained weights
+weight_dir = 'pretrained_pytorch_weights/Genesis_Chest_CT.h5'
+checkpoint = torch.load(weight_dir)
+state_dict = checkpoint['state_dict']
+unParalled_state_dict = {}
+for key in state_dict.keys():
+    unParalled_state_dict[key.replace("module.", "")] = state_dict[key]
+model.load_state_dict(unParalled_state_dict)
+
 model.to(device)
 model = nn.DataParallel(model, device_ids = [i for i in range(torch.cuda.device_count())])
 criterion = You Loss Function
