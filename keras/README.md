@@ -143,8 +143,7 @@ done
 
 ### 3. Pre-train Models Genesis (LUNA-2016 for example)
 ```bash
-cd keras/
-python -W ignore Genesis_Chest_CT.py
+python -W ignore keras/Genesis_Chest_CT.py
 ```
 Your pre-trained Models Genesis will be saved at `./keras/pretrained_weights/Vnet-genesis_chest_ct.h5`.
 
