@@ -71,15 +71,15 @@ optimizer = torch.optim.SGD(target_model.parameters(), config.lr, momentum=0.9, 
 # train the model
 
 for epoch in range(intial_epoch, config.nb_epoch):
-            scheduler.step(epoch)
-            target_model.train()
-            for batch_ndx, (x,y) in enumerate(train_loader):
-                x, y = x.float().to(device), y.float().to(device)
-                pred = F.sigmoid(target_model(x))
-                loss = criterion(pred, y)
-                optimizer.zero_grad()
-                loss.backward()
-                optimizer.step()
+    scheduler.step(epoch)
+    target_model.train()
+    for batch_ndx, (x,y) in enumerate(train_loader):
+        x, y = x.float().to(device), y.float().to(device)
+        pred = F.sigmoid(target_model(x))
+        loss = criterion(pred, y)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
 
 
 
@@ -103,15 +103,15 @@ optimizer = torch.optim.SGD(model.parameters(), config.lr, momentum=0.9, weight_
 # train the model
 
 for epoch in range(intial_epoch, config.nb_epoch):
-            scheduler.step(epoch)
-            target_model.train()
-            for batch_ndx, (x,y) in enumerate(train_loader):
-                x, y = x.float().to(device), y.float().to(device)
-                pred = model
-                loss = criterion(pred, y)
-                optimizer.zero_grad()
-                loss.backward()
-                optimizer.step()
+    scheduler.step(epoch)
+    target_model.train()
+    for batch_ndx, (x,y) in enumerate(train_loader):
+        x, y = x.float().to(device), y.float().to(device)
+        pred = model
+        loss = criterion(pred, y)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
 
 ```
 
