@@ -44,7 +44,6 @@ train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=Tr
 # prepare the 3D model
 
 class TargetNet(nn.Module):
-
     def __init__(self, base_model,n_class=1):
         super(TargetNet, self).__init__()
 
@@ -80,10 +79,6 @@ for epoch in range(intial_epoch, config.nb_epoch):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-
-
-
-
 ```
 
 As for the target segmentation tasks, the 3D deep model can be initialized with the pre-trained encoder-decoder using the following example:
@@ -96,9 +91,8 @@ train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=Tr
 model = unet3d.UNet3D()
 model.to(device)
 model = nn.DataParallel(model, device_ids = [i for i in range(torch.cuda.device_count())])
-criterion = nn.BCELoss()
+criterion = You Loss Function
 optimizer = torch.optim.SGD(model.parameters(), config.lr, momentum=0.9, weight_decay=0.0, nesterov=False)
-
 
 # train the model
 
