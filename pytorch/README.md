@@ -38,21 +38,81 @@ Models Genesis learn a general-purpose image representation that can be leverage
 As for the target classification tasks, the 3D deep model can be initialized with the pre-trained encoder using the following example:
 ```python
 # prepare your own data
-X, y = your_data_loader()
+
+train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=True)
 
 # prepare the 3D model
 
+class TargetNet(nn.Module):
+
+    def __init__(self, base_model,n_class=1):
+        super(TargetNet, self).__init__()
+
+        self.base_model = base_model
+        self.dense_1 = nn.Linear(512, 1024, bias=True)
+        self.dense_2 = nn.Linear(1024, n_class, bias=True)
+
+    def forward(self, x):
+        self.base_model(x)
+        self.base_out = self.base_model.out512
+        self.out_glb_avg_pool = F.avg_pool3d(self.base_out, kernel_size=self.base_out.size()[2:]).view(self.base_out.size( [0],-1)
+        self.linear_out = self.dense_1(self.out_glb_avg_pool)
+        final_out = self.dense_2( F.relu(self.linear_out))
+        
+        return final_out
+        
+
+target_model = TargetNet(unet3d.UNet3D())
+target_model.to(device)
+target_model = nn.DataParallel(target_model, device_ids = [i for i in range(torch.cuda.device_count())])
+criterion = nn.BCELoss()
+optimizer = torch.optim.SGD(target_model.parameters(), config.lr, momentum=0.9, weight_decay=0.0, nesterov=False)
+
 # train the model
+
+for epoch in range(intial_epoch, config.nb_epoch):
+            scheduler.step(epoch)
+            target_model.train()
+            for batch_ndx, (x,y) in enumerate(train_loader):
+                x, y = x.float().to(device), y.float().to(device)
+                pred = F.sigmoid(target_model(x))
+                loss = criterion(pred, y)
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
+
+
+
+
 ```
 
 As for the target segmentation tasks, the 3D deep model can be initialized with the pre-trained encoder-decoder using the following example:
 ```python
 # prepare your own data
-X, Y = your_data_loader()
+train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=True)
 
 # prepare the 3D model
 
+model = unet3d.UNet3D()
+model.to(device)
+model = nn.DataParallel(model, device_ids = [i for i in range(torch.cuda.device_count())])
+criterion = nn.BCELoss()
+optimizer = torch.optim.SGD(model.parameters(), config.lr, momentum=0.9, weight_decay=0.0, nesterov=False)
+
+
 # train the model
+
+for epoch in range(intial_epoch, config.nb_epoch):
+            scheduler.step(epoch)
+            target_model.train()
+            for batch_ndx, (x,y) in enumerate(train_loader):
+                x, y = x.float().to(device), y.float().to(device)
+                pred = model
+                loss = criterion(pred, y)
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
+
 ```
 
 **Prepare your own data:** If the image modality in your target task is CT, we suggest that all the intensity values be clipped on the min (-1000) and max (+1000) interesting Hounsfield Unit range and then scale between 0 and 1. If the image modality is MRI, we suggest that all the intensity values be clipped on min (0) and max (+4000) interesting range and then scale between 0 and 1. For any other modalities, you may want to first clip on the meaningful intensity range and then scale between 0 and 1. 
