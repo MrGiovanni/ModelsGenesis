@@ -208,4 +208,4 @@ If you use this code or use our pre-trained weights for your research, please ci
 
 
 ## Acknowledgement
-This research has been supported partially by ASU and Mayo Clinic through a Seed Grant and an Innovation Grant, and partially by NIH under Award Number R01HL128785. The content is solely the responsibility of the authors and does not necessarily represent the official views of NIH.
+We thank [Jiaxuan Pang](https://github.com/MRJasonP) and [Vatsal Sodha](https://github.com/vatsal-sodha) for their implementation of Models Genesis in PyTorch. We build 3D U-Net architecture by referring to the released code at [mattmacy/vnet.pytorch](https://github.com/mattmacy/vnet.pytorch).
