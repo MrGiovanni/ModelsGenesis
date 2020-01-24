@@ -62,7 +62,7 @@ class TargetNet(nn.Module):
 base_model = unet3d.UNet3D()
 
 #Load pre-trained weights
-weight_dir = 'pretrained_pytorch_weights/Genesis_Chest_CT.h5'
+weight_dir = 'pretrained_weights/Genesis_Chest_CT.pt'
 checkpoint = torch.load(weight_dir)
 state_dict = checkpoint['state_dict']
 unParalled_state_dict = {}
@@ -99,7 +99,7 @@ train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=Tr
 model = unet3d.UNet3D()
 
 #Load pre-trained weights
-weight_dir = 'pretrained_pytorch_weights/Genesis_Chest_CT.h5'
+weight_dir = 'pretrained_weights/Genesis_Chest_CT.pt'
 checkpoint = torch.load(weight_dir)
 state_dict = checkpoint['state_dict']
 unParalled_state_dict = {}
