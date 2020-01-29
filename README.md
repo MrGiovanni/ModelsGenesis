@@ -1,4 +1,4 @@
-<p align="center"><img width="60%" src="figures/logo.png" /></p>
+<p align="center"><img width="70%" src="figures/logo.png" /></p>
 
 --------------------------------------------------------------------------------
 
