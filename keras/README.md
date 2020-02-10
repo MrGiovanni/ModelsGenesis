@@ -166,4 +166,4 @@ If you use this code or use our pre-trained weights for your research, please ci
 
 
 ## Acknowledgement
-We thank [Zongwei Zhou](https://www.zongweiz.com/) and [Vatsal Sodha](https://github.com/vatsal-sodha) for their implementation of Models Genesis in Keras. We build 3D U-Net architecture by referring to the released code at [ellisdg/3DUnetCNN](https://github.com/ellisdg/3DUnetCNN).
+We thank [Zongwei Zhou](https://www.zongweiz.com/) and [Vatsal Sodha](https://github.com/vatsal-sodha) for their implementation of Models Genesis in Keras. We build 3D U-Net architecture by referring to the released code at [ellisdg/3DUnetCNN](https://github.com/ellisdg/3DUnetCNN). This is a patent-pending technology.
