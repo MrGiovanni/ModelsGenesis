@@ -208,4 +208,4 @@ If you use this code or use our pre-trained weights for your research, please ci
 
 
 ## Acknowledgement
-We thank [Jiaxuan Pang](https://github.com/MRJasonP) and [Vatsal Sodha](https://github.com/vatsal-sodha) for their implementation of Models Genesis in PyTorch. We build 3D U-Net architecture by referring to the released code at [mattmacy/vnet.pytorch](https://github.com/mattmacy/vnet.pytorch).
+We thank [Jiaxuan Pang](https://github.com/MRJasonP) and [Vatsal Sodha](https://github.com/vatsal-sodha) for their implementation of Models Genesis in PyTorch. We build 3D U-Net architecture by referring to the released code at [mattmacy/vnet.pytorch](https://github.com/mattmacy/vnet.pytorch). This is a patent-pending technology.
