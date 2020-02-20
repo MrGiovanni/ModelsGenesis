@@ -119,6 +119,7 @@ def image_in_painting(x):
           noise_z:noise_z+block_noise_size_z] = np.random.rand(block_noise_size_x, 
                                                                block_noise_size_y, 
                                                                block_noise_size_z, ) * 1.0
+        cnt -= 1
     return x
 
 def image_out_painting(x):
@@ -151,6 +152,7 @@ def image_out_painting(x):
           noise_z:noise_z+block_noise_size_z] = image_temp[:, noise_x:noise_x+block_noise_size_x, 
                                                            noise_y:noise_y+block_noise_size_y, 
                                                            noise_z:noise_z+block_noise_size_z]
+        cnt -= 1
     return x
                 
 
