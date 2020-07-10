@@ -45,7 +45,7 @@ Note that learning from scratch <i>simply</i> in 3D may not necessarily yield pe
 
 
 ## Citation
-If you use this code or use our pre-trained weights for your research, please cite our [paper](https://link.springer.com/chapter/10.1007/978-3-030-32251-9_42):
+If you use this code or use our pre-trained weights for your research, please cite our papers:
 ```
 @InProceedings{zhou2019models,
   author="Zhou, Zongwei and Sodha, Vatsal and Rahman Siddiquee, Md Mahfuzur and Feng, Ruibin and Tajbakhsh, Nima and Gotway, Michael B. and Liang, Jianming",
