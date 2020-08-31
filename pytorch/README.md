@@ -60,7 +60,7 @@ class TargetNet(nn.Module):
     def forward(self, x):
         self.base_model(x)
         self.base_out = self.base_model.out512
-        self.out_glb_avg_pool = F.avg_pool3d(self.base_out, kernel_size=self.base_out.size()[2:]).view(self.base_out.size( [0],-1)
+        self.out_glb_avg_pool = F.avg_pool3d(self.base_out, kernel_size=self.base_out.size()[2:]).view(self.base_out.size()[0],-1)
         self.linear_out = self.dense_1(self.out_glb_avg_pool)
         final_out = self.dense_2( F.relu(self.linear_out))
         return final_out
