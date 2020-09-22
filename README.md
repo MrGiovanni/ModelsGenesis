@@ -31,6 +31,7 @@ Medical Image Analysis (MedIA) for the Special Issue on MICCAI 2019 <br/>
 - pytorch/
 
 **&#9733; News: Models Genesis, incorporated with nnU-Net, [rank # 1](https://decathlon-10.grand-challenge.org/evaluation/challenge/leaderboard/) in segmenting liver/tumor and hippocampus.**
+- download pre-trained nnU-Net [here (coming soon)]()
 
 
 ## Major results from our work
