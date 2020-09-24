@@ -1,8 +1,9 @@
 # Models Genesis - Incorperated with nnU-Net
 
-We provide the pre-trained 3D nnU-Net. By adapting Models Genesis to nnU-Net, we have so far accomplished:
-&#9733; Rank # 1 in segmenting liver tumor
-&#9733; Rank # 1 in segmenting hippocampus
+We provide the pre-trained 3D nnU-Net. By adapting Models Genesis to nnU-Net, we have so far accomplished:<br/>
+
+&#9733; Rank # 1 in segmenting liver tumor<br/>
+&#9733; Rank # 1 in segmenting hippocampus<br/>
 
 <b>Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis</b> <br/>
 [Zongwei Zhou](https://www.zongweiz.com/)<sup>1</sup>, [Vatsal Sodha](https://github.com/vatsal-sodha)<sup>1</sup>, [Md Mahfuzur Rahman Siddiquee](https://github.com/mahfuzmohammad)<sup>1</sup>,  <br/>
