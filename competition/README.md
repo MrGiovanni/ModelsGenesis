@@ -44,7 +44,7 @@ To download the pre-trained nnU-Net, first request [here](https://www.wjx.top/jq
 ### 3. Modifications in order to fine-tune Models Genesis on your own target task using nnUNet framework
 Models Genesis learns a general-purpose image representation that can be leveraged for a wide range of target tasks. Specifically, Models Genesis can be utilized to initialize the encoder for the target classification tasks and to initialize the encoder-decoder for the target segmentation tasks.
 For loading the pre-trained Models Genesis weights in nnUNet framework, we need do to some modifications in the code.
-- First add argument for weight in <ins>nnunet/training/network_training/nnUNetTrainerV2.py</ins>:
+- First add argument for weight in <ins>nnunet/run/run_training.py</ins>:
     ```python
     parser.add_argument("-w", required=False, default=None, help="Load pre-trained Models Genesis")
     ```
