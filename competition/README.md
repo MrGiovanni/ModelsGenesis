@@ -1,9 +1,8 @@
 # Models Genesis - Incorperated with nnU-Net
 
-By adapting Models Genesis to nnU-Net, we have so far accomplished:<br/>
+By adapting Models Genesis to nnU-Net, we (user: JLiangLab) have so far accomplished:<br/>
 
 &#9733; Rank # 1 in segmenting liver tumor<br/>
-&#9733; Rank # 1 in segmenting hippocampus<br/>
 
 In this page, we provide the pre-trained 3D nnU-Net and describe the usage of the model. The original idea has been presented in the following papers:
 
@@ -24,72 +23,86 @@ Medical Image Analysis (MedIA) for the Special Issue on MICCAI 2019 <br/>
 ## Dependencies
 
 + Linux
-+ Python 2.7+
-+ PyTorch 1.3.1
++ Python 3.7+
++ PyTorch 1.6+
 
-## Usage of the pre-trained nnU-Net
+## Usage of the pre-trained nnU-Net (Task003_Liver as an example)
 
 ### 0. Before proceeding to the below steps, install nnUNet from [here](https://github.com/MIC-DKFZ/nnUNet).
 
-### 1. Clone the repository
-```bash
-$ git clone https://github.com/MrGiovanni/ModelsGenesis.git
-$ cd ModelsGenesis/
-$ pip install -r requirements.txt
+- [Here is a quick how-to for Ubuntu](https://linoxide.com/linux-how-to/setup-python-virtual-environment-ubuntu/)
+- Install [PyTorch](https://pytorch.org/get-started/locally/)
+- Install nnU-Net as below
+```
+git clone https://github.com/MIC-DKFZ/nnUNet.git
+cd nnUNet
+pip install git+https://github.com/MIC-DKFZ/batchgenerators.git
+pip install -e .
+```
+- Set a few of environment variables. Please follow the instructions [here](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/setting_up_paths.md)
+
+
+### 1. Download the pre-trained nnU-Net
+To download the pre-trained nnU-Net, first request [here](https://www.wjx.top/jq/46747127.aspx). After submitting the form, download the pre-trained nnU-Net (`genesis_nnunet_luna16_006.model`), create a new folder `pretrained_weights`, and save the model into `pretrained_weights/` directory.
+
+### 2. Fine-tune the pre-trained nnU-Net on Task003_Liver
+
+
+- Modify ```nnunet/run/run_training.py```:
+```python
+parser.add_argument("-w", required=False, default=None, help="Load pre-trained Models Genesis") # Add an argument for pre-trained weights
+...
+args = parser.parse_args() # Existing in the file
+...
+weights = args.w # parse it to variable "weights"
+...
+trainer.initialize(not validation_only) # Existing in the file
+# Add below lines
+if weights != None:                                                         
+    trainer.load_pretrained_weights(weights)
 ```
 
-### 2. Download the pre-trained nnU-Net
-To download the pre-trained nnU-Net, first request [here](https://www.wjx.top/jq/46747127.aspx). After submitting the form, download the pre-trained nnU-Net and save into `specify here` directory.
+- Add a new function under the "NetworkTrainer" class in ```nnunet/training/network_training/network_trainer.py```:
+```python
+def load_pretrained_weights(self,fname):                                    
+    saved_model = torch.load(fname)                                         
+    pretrained_dict = saved_model['state_dict']                             
+    model_dict = self.network.state_dict()                                  
+    # filter unnecessary keys                                               
+    pretrained_dict = {k: v for k, v in pretrained_dict.items() if          
+                   (k in model_dict) and (model_dict[k].shape == pretrained_dict[k].shape)}
+    # 2. overwrite entries in the existing state dict                       
+    model_dict.update(pretrained_dict)                                      
+                                                                                                                           
+    print("############################################### Loading pre-trained Models Genesis from ",fname)
+    print("Below is the list of overlapping blocks in pre-trained Models Genesis and nnUNet architecture:")
+    for key, _ in pretrained_dict.items():                                  
+        print(key)                                                          
+    print("############################################### Done")           
+    self.network.load_state_dict(model_dict) 
+```
 
-### 3. Modifications in order to fine-tune Models Genesis on your own target task using nnUNet framework
-Models Genesis learns a general-purpose image representation that can be leveraged for a wide range of target tasks. Specifically, Models Genesis can be utilized to initialize the encoder for the target classification tasks and to initialize the encoder-decoder for the target segmentation tasks.
-For loading the pre-trained Models Genesis weights in nnUNet framework, we need do to some modifications in the code.
-- First add argument for weight in <ins>nnunet/run/run_training.py</ins>:
-    ```python
-    parser.add_argument("-w", required=False, default=None, help="Load pre-trained Models Genesis")
-    ```
-    then parse it using:
-    ```python
-    weights = args.w
-    ```
-    After the trainer class initialization in the same file, call **load_pretrained_weights** method to load the pre-trained Models Genesis:
-    ```python
-    trainer.initialize(not validation_only) #### Already exists in main method
-    #### Reference for adding the call to load pre-trained weights
-    #### Add below lines
-    if weights != None:                                                         
-        trainer.load_pretrained_weights(weights)
-    ```
-- Now lets define **load_pretrained_weights** inside **NetworkTrainer** class in <ins>nnunet/training/network_training/network_trainer.py</ins>:
-    ```python
-    def load_pretrained_weights(self,fname):                                    
-        saved_model = torch.load(fname)                                         
-        pretrained_dict = saved_model['state_dict']                             
-        model_dict = self.network.state_dict()                                  
-        # filter unnecessary keys                                               
-        pretrained_dict = {k: v for k, v in pretrained_dict.items() if          
-                       (k in model_dict) and (model_dict[k].shape == pretrained_dict[k].shape)}
-        # 2. overwrite entries in the existing state dict                       
-        model_dict.update(pretrained_dict)                                      
-                                                                                
-        # print(model_dict)                                                     
-        print("############################################### Loading pre-trained Models Genesis from ",fname)
-        print("Below is the list of overlapping blocks in pre-trained Models Genesis and nnUNet architecture:")                       
-        for key, _ in pretrained_dict.items():                                  
-            print(key)                                                          
-        print("############################################### Done")           
-        self.network.load_state_dict(model_dict) 
-    ```
-### 3. Fine-tune Models Genesis for target task in nnUNet framework
-Once done with the modifications, it's time to fine-tune Models Genesis for target tasks in nnUNet framework. To do so run the following command:
+### 3. Model training
+
+- Run the following command to fine-tune the model on Task003_Liver:
+
 ```bash
-nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD -w "pre-trained Models Genesis path"
+For FOLD in 0 1 2 3 4
+do
+nnUNet_train 3d_fullres nnUNetTrainerV2 Task003_Liver $FOLD -w pretrained_weights/genesis_nnunet_luna16_006.model
+done
 ```
-For example, For 3d_fullres architecture, run below:
+
+To fine-tune nnU-Net, the general structure of the command is:
 ```bash
-nnUNet_train 3d_fullres nnUNetTrainerV2 TaskXXX_MYTASK FOLD -w "path to pre-trained Models Genesis"
+nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD -w pretrained_weights/genesis_nnunet_luna16_006.model
 ```
-Similarly it can be done for rest of the architectures.
+
+
+## Pre-train nnU-Net from your own unlabeled dataset
+
+
+
 
 ## Citation
 If you use this code or use our pre-trained weights for your research, please cite our [paper](https://link.springer.com/chapter/10.1007/978-3-030-32251-9_42):
