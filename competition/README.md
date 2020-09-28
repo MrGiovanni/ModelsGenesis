@@ -56,7 +56,7 @@ parser.add_argument("-w", required=False, default=None, help="Load pre-trained M
 # Existing in the file
 args = parser.parse_args() 
 ...
-# parse it to variable "weights"
+# Parse it to variable "weights"
 weights = args.w 
 ...
 # Existing in the file
@@ -103,7 +103,7 @@ nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD -w pretrained
 ```
 
 
-## Pre-train nnU-Net from your own unlabeled dataset
+## Pre-train nnU-Net from your own dataset
 
 TBA
 
