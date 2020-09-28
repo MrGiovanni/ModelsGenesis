@@ -45,7 +45,7 @@ pip install -e .
 ### 1. Download the pre-trained nnU-Net
 To download the pre-trained nnU-Net, first request [here](https://www.wjx.top/jq/46747127.aspx). After submitting the form, download the pre-trained nnU-Net `genesis_nnunet_luna16_006.model`, create a new folder `pretrained_weights`, and save the model to the `pretrained_weights/` directory.
 
-### 2. Fine-tune the pre-trained nnU-Net on Task003_Liver
+### 2. Modify codes in two files
 
 
 - Modify ```nnunet/run/run_training.py```:
@@ -86,7 +86,7 @@ def load_pretrained_weights(self,fname):
     self.network.load_state_dict(model_dict) 
 ```
 
-### 3. Model training
+### 3. Fine-tune the pre-trained nnU-Net
 
 - Run the following command to fine-tune the model on Task003_Liver:
 
