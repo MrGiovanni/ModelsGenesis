@@ -50,13 +50,17 @@ To download the pre-trained nnU-Net, first request [here](https://www.wjx.top/jq
 
 - Modify ```nnunet/run/run_training.py```:
 ```python
-parser.add_argument("-w", required=False, default=None, help="Load pre-trained Models Genesis") # Add an argument for pre-trained weights
+# Add an argument for pre-trained weights
+parser.add_argument("-w", required=False, default=None, help="Load pre-trained Models Genesis") 
 ...
-args = parser.parse_args() # Existing in the file
+# Existing in the file
+args = parser.parse_args() 
 ...
-weights = args.w # parse it to variable "weights"
+# parse it to variable "weights"
+weights = args.w 
 ...
-trainer.initialize(not validation_only) # Existing in the file
+# Existing in the file
+trainer.initialize(not validation_only) 
 # Add below lines
 if weights != None:                                                         
     trainer.load_pretrained_weights(weights)
@@ -71,7 +75,7 @@ def load_pretrained_weights(self,fname):
     # filter unnecessary keys                                               
     pretrained_dict = {k: v for k, v in pretrained_dict.items() if          
                    (k in model_dict) and (model_dict[k].shape == pretrained_dict[k].shape)}
-    # 2. overwrite entries in the existing state dict                       
+    # overwrite entries in the existing state dict                       
     model_dict.update(pretrained_dict)                                      
                                                                                                                            
     print("############################################### Loading pre-trained Models Genesis from ",fname)
@@ -101,7 +105,7 @@ nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD -w pretrained
 
 ## Pre-train nnU-Net from your own unlabeled dataset
 
-
+TBA
 
 
 ## Citation
