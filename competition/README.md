@@ -39,7 +39,7 @@ cd nnUNet
 pip install git+https://github.com/MIC-DKFZ/batchgenerators.git
 pip install -e .
 ```
-- Set a few of environment variables. Please follow the instructions [here](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/setting_up_paths.md)
+- Set a few environment variables. Please follow the instructions [here](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/setting_up_paths.md)
 
 
 ### 1. Download the pre-trained nnU-Net
