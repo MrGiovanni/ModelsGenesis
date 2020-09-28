@@ -30,7 +30,7 @@ Medical Image Analysis (MedIA) for the Special Issue on MICCAI 2019 <br/>
 
 ### 0. Before proceeding to the below steps, install nnUNet from [here](https://github.com/MIC-DKFZ/nnUNet).
 
-- [Here is a quick how-to for Ubuntu](https://linoxide.com/linux-how-to/setup-python-virtual-environment-ubuntu/)
+- Create virtual environment.[Here is a quick how-to for Ubuntu](https://linoxide.com/linux-how-to/setup-python-virtual-environment-ubuntu/)
 - Install [PyTorch](https://pytorch.org/get-started/locally/)
 - Install nnU-Net as below
 ```
@@ -43,7 +43,7 @@ pip install -e .
 
 
 ### 1. Download the pre-trained nnU-Net
-To download the pre-trained nnU-Net, first request [here](https://www.wjx.top/jq/46747127.aspx). After submitting the form, download the pre-trained nnU-Net (`genesis_nnunet_luna16_006.model`), create a new folder `pretrained_weights`, and save the model into `pretrained_weights/` directory.
+To download the pre-trained nnU-Net, first request [here](https://www.wjx.top/jq/46747127.aspx). After submitting the form, download the pre-trained nnU-Net `genesis_nnunet_luna16_006.model`, create a new folder `pretrained_weights`, and save the model to the `pretrained_weights/` directory.
 
 ### 2. Fine-tune the pre-trained nnU-Net on Task003_Liver
 
