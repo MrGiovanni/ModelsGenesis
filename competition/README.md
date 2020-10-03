@@ -97,6 +97,7 @@ def load_pretrained_weights(self,fname):
         self.network.load_state_dict(model_dict)                            
     else:                                                                   
         print('############################################### Training from scratch')```
+```
 
 ### 3. Fine-tune the pre-trained nnU-Net
 
