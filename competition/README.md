@@ -194,5 +194,5 @@ If you use this code or use our pre-trained weights for your research, please ci
 ```
 
 ## Acknowledgement
-We thank [Shivam Bajpai](https://github.com/sbajpai2) for his implementation of pre-trained nnU-Net. We build nnU-Net framework by referring to the released code at [MIC-DKFZ/nnUNet](https://github.com/MIC-DKFZ/nnUNet). This is a patent-pending technology.
+We thank [Shivam Bajpai](https://github.com/sbajpai2) and [Vatsal Sodha](https://github.com/vatsal-sodha) for their implementation of pre-trained nnU-Net. We build nnU-Net framework by referring to the released code at [MIC-DKFZ/nnUNet](https://github.com/MIC-DKFZ/nnUNet). This is a patent-pending technology.
 
