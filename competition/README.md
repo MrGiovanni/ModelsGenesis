@@ -118,8 +118,56 @@ nnUNet_train CONFIGURATION TRAINER_CLASS_NAME TASK_NAME_OR_ID FOLD -w pretrained
 
 ## Pre-train nnU-Net from your own dataset
 
-TBA
+### 1. Clone the repository
+```bash
+$ git clone https://github.com/MrGiovanni/ModelsGenesis.git
+$ cd ModelsGenesis/
+$ pip install -r requirements.txt
+```
+### 2. Create the data generator (LUNA-2016 for example)
 
+#### For your convenience, we have provided our own extracted 3D cubes from LUNA16. 
+
+Download from [Google Drive](https://drive.google.com/drive/folders/1ZEQHc4FLFHK204UJ1iABQVrjQOFmx_gX?usp=sharing) or [Baidu Wangpan](https://pan.baidu.com/s/1U4qzEu-Ijl8hkSCLTr-agA) <- code: m8g4. Each sub-folder is named as 'bat_N_s_64x64x32', where *N* denotes the number of cubes extracted from each patient. You may select the scale of training samples accordingly based on your resources in hand: larger *N* demands longer learning time and more powerful GPUs/CPUs, while may (or may not) result in a more generic visual representation. We have adopted *N*=32 in our MICCAI paper. 
+
+- The processed cubes directory structure
+```
+generated_cubes/
+    |--  bat_32_s_64x64x32_0.npy: cubes extracted from subset0 in luna16
+    |--  bat_32_s_64x64x32_1.npy: cubes extracted from subset1 in luna16
+    |--  bat_32_s_64x64x32_2.npy: cubes extracted from subset2 in luna16
+    |--  bat_32_s_64x64x32_3.npy: cubes extracted from subset3 in luna16
+    |--  bat_32_s_64x64x32_4.npy: cubes extracted from subset4 in luna16
+    |--  bat_32_s_64x64x32_5.npy: cubes extracted from subset5 in luna16
+    |--  bat_32_s_64x64x32_6.npy: cubes extracted from subset6 in luna16
+    |--  bat_32_s_64x64x32_7.npy: cubes extracted from subset7 in luna16
+    |--  bat_32_s_64x64x32_8.npy: cubes extracted from subset8 in luna16
+    |--  bat_32_s_64x64x32_9.npy: cubes extracted from subset9 in luna16
+```
+
+#### You can also extract 3D cubes by your own following two steps below:
+
+**Step 1**: Download LUNA-2016 dataset from the challenge website (https://luna16.grand-challenge.org/download/) and save to `./datasets/luna16` directory.
+
+**Step 2**: Extract 3D cubes from the patient data by running the script below. The extracted 3D cubes will be saved into `./generated_cubes` directory.
+```bash
+for subset in `seq 0 9`
+do
+python -W ignore infinite_generator_3D.py \
+--fold $subset \
+--scale 32 \
+--data datasets/luna16 \
+--save generated_cubes
+done
+```
+
+### 3. Pre-train Models Genesis (LUNA-2016 for example)
+
+```bash
+cd competition/
+python -W ignore Genesis_nnUNet.py
+```
+Your pre-trained nnU-Net will be saved at `./competition/pretrained_weights/genesis_nnunet_luna16_006.model`.
 
 ## Citation
 If you use this code or use our pre-trained weights for your research, please cite our [paper](https://link.springer.com/chapter/10.1007/978-3-030-32251-9_42):

@@ -25,7 +25,7 @@ print("torch = {}".format(torch.__version__))
 
 seed = 1
 random.seed(seed)
-model_path = "Models/pre-training/"
+model_path = "pretrained_weights/"
 if not os.path.exists(model_path):
     os.makedirs(model_path)
 logs_path = os.path.join(model_path, "Logs")
