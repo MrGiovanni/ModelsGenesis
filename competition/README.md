@@ -72,19 +72,31 @@ def load_pretrained_weights(self,fname):
     saved_model = torch.load(fname)                                         
     pretrained_dict = saved_model['state_dict']                             
     model_dict = self.network.state_dict()                                  
+    fine_tune = True                                                        
+    for key, _ in model_dict.items():                                       
+       if ('conv_blocks' in key):                                           
+           if (key in pretrained_dict) and (model_dict[key].shape == pretrained_dict[key].shape):
+               continue                                                     
+           else:                                                            
+               fine_tune = False                                            
+               break                                                        
     # filter unnecessary keys                                               
-    pretrained_dict = {k: v for k, v in pretrained_dict.items() if          
-                   (k in model_dict) and (model_dict[k].shape == pretrained_dict[k].shape)}
-    # overwrite entries in the existing state dict                       
-    model_dict.update(pretrained_dict)                                      
-                                                                                                                           
-    print("############################################### Loading pre-trained Models Genesis from ",fname)
-    print("Below is the list of overlapping blocks in pre-trained Models Genesis and nnUNet architecture:")
-    for key, _ in pretrained_dict.items():                                  
-        print(key)                                                          
-    print("############################################### Done")           
-    self.network.load_state_dict(model_dict) 
-```
+    if fine_tune:                                                           
+        pretrained_dict = {k: v for k, v in pretrained_dict.items() if      
+                       (k in model_dict) and (model_dict[k].shape == pretrained_dict[k].shape)}
+        # 2. overwrite entries in the existing state dict                       
+        model_dict.update(pretrained_dict)                                  
+        # print(model_dict)                                                     
+        print("############################################### Loading pre-trained Models Genesis from ",fname)
+        print("Below is the list of overlapping blocks in pre-trained Models Genesis and nnUNet architecture:")
+        for key, _ in pretrained_dict.items():                              
+            print(key)                                                      
+        print("############################################### Done")       
+        for key, _ in model_dict.items():                                   
+            print(key)                                                      
+        self.network.load_state_dict(model_dict)                            
+    else:                                                                   
+        print('############################################### Training from scratch')```
 
 ### 3. Fine-tune the pre-trained nnU-Net
 
