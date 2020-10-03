@@ -161,7 +161,7 @@ python -W ignore infinite_generator_3D.py \
 done
 ```
 
-### 3. Pre-train Models Genesis (LUNA-2016 for example)
+### 3. Pre-train Models Genesis for nnU-Net (LUNA-2016 for example)
 
 ```bash
 cd competition/
