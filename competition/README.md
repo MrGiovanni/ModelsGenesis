@@ -91,9 +91,7 @@ def load_pretrained_weights(self,fname):
         print("Below is the list of overlapping blocks in pre-trained Models Genesis and nnUNet architecture:")
         for key, _ in pretrained_dict.items():                              
             print(key)                                                      
-        print("############################################### Done")       
-        for key, _ in model_dict.items():                                   
-            print(key)                                                      
+        print("############################################### Done")                                                            
         self.network.load_state_dict(model_dict)                            
     else:                                                                   
         print('############################################### Training from scratch')```
