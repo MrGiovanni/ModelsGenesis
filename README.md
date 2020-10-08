@@ -27,8 +27,8 @@ Medical Image Analysis (MedIA) <br/>
 [paper](https://arxiv.org/pdf/2004.07882.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://d5b3ebbb-7f8d-4011-9114-d87f4a930447.filesusr.com/ugd/deaea1_5ecdfa48836941d6ad174dcfbc925575.pdf)
 
 <p float="left">
-  <img src="figures/Young_Scientist_Award.JPG" width="100" />
-  <img src="figures/MedIA_Best_Paper_Award.JPG" width="100" /> 
+  <img width="50%" src="figures/Young_Scientist_Award.JPG" />
+  <img width="50%" src="figures/MedIA_Best_Paper_Award.JPG" /> 
 </p>
 
 ## Available implementation
