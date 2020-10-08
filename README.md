@@ -28,7 +28,7 @@ Medical Image Analysis (MedIA) <br/>
 
 <p float="center">
   <img width="30%" src="figures/Young_Scientist_Award.JPG" />
-  <img width="55%" src="figures/MedIA_Best_Paper_Award.JPG" /> 
+  <img width="60%" src="figures/MedIA_Best_Paper_Award.JPG" /> 
 </p>
 
 ## Available implementation
