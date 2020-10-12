@@ -23,7 +23,7 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 [Zongwei Zhou](https://www.zongweiz.com/)<sup>1</sup>, [Vatsal Sodha](https://github.com/vatsal-sodha)<sup>1</sup>, [Jiaxuan Pang](https://github.com/MRJasonP)<sup>1</sup>, [Michael B. Gotway](https://www.mayoclinic.org/biographies/gotway-michael-b-m-d/bio-20055566)<sup>2</sup>, and [Jianming Liang](https://chs.asu.edu/jianming-liang)<sup>1</sup> <br/>
 <sup>1 </sup>Arizona State University,   <sup>2 </sup>Mayo Clinic <br/>
 Medical Image Analysis (MedIA) <br/>
-<b>[MedIA Best Paper Award](https://github.com/MrGiovanni/ModelsGenesis/blob/master/figures/MedIA_Best_Paper_Award.JPG)</b>  <br/>
+<b>[MedIA Best Paper Award](http://www.miccai.org/about-miccai/awards/medical-image-analysis-best-paper-award/)</b>  <br/>
 [paper](https://arxiv.org/pdf/2004.07882.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://d5b3ebbb-7f8d-4011-9114-d87f4a930447.filesusr.com/ugd/deaea1_5ecdfa48836941d6ad174dcfbc925575.pdf)
 
 <p float="center">
