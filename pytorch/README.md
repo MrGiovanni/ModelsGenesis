@@ -44,11 +44,7 @@ Models Genesis learn a general-purpose image representation that can be leverage
 
 As for the target classification tasks, the 3D deep model can be initialized with the pre-trained encoder using the following example:
 ```python
-# prepare your own data
 
-train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=True)
-
-# prepare the 3D model
 
 import torch
 from torch import nn
@@ -56,6 +52,10 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 import unet3d
 
+# prepare your own data
+train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=True)
+
+# prepare the 3D model
 class TargetNet(nn.Module):
     def __init__(self, base_model,n_class=1):
         super(TargetNet, self).__init__()
