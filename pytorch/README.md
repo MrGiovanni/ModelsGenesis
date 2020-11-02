@@ -50,6 +50,12 @@ train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=Tr
 
 # prepare the 3D model
 
+import torch
+from torch import nn
+import torch.nn.functional as F
+from torch.utils.data import Dataset, DataLoader
+import unet3d
+
 class TargetNet(nn.Module):
     def __init__(self, base_model,n_class=1):
         super(TargetNet, self).__init__()
@@ -98,6 +104,20 @@ for epoch in range(intial_epoch, config.nb_epoch):
 
 As for the target segmentation tasks, the 3D deep model can be initialized with the pre-trained encoder-decoder using the following example:
 ```python
+
+import torch
+from torch import nn
+import torch.nn.functional as F
+from torch.utils.data import Dataset, DataLoader
+import unet3d
+
+#Declare the Dice Loss
+def torch_dice_coef_loss(y_true,y_pred, smooth=1.):
+    y_true_f = torch.flatten(y_true)
+    y_pred_f = torch.flatten(y_pred)
+    intersection = torch.sum(y_true_f * y_pred_f)
+    return 1. - ((2. * intersection + smooth) / (torch.sum(y_true_f) + torch.sum(y_pred_f) + smooth))
+
 # prepare your own data
 train_loader = DataLoader(Your Dataset, batch_size=config.batch_size, shuffle=True)
 
@@ -116,7 +136,7 @@ model.load_state_dict(unParalled_state_dict)
 
 model.to(device)
 model = nn.DataParallel(model, device_ids = [i for i in range(torch.cuda.device_count())])
-criterion = You Loss Function
+criterion = torch_dice_coef_loss
 optimizer = torch.optim.SGD(model.parameters(), config.lr, momentum=0.9, weight_decay=0.0, nesterov=False)
 
 # train the model
