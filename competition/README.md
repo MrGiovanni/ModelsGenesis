@@ -31,7 +31,7 @@ Medical Image Analysis (MedIA) <br/>
 
 ### 0. Before proceeding to the below steps, install nnUNet from [here](https://github.com/MIC-DKFZ/nnUNet).
 
-- Create virtual environment.[Here is a quick how-to for Ubuntu](https://linoxide.com/linux-how-to/setup-python-virtual-environment-ubuntu/)
+- Create virtual environment. [Here is a quick how-to for Ubuntu](https://linoxide.com/linux-how-to/setup-python-virtual-environment-ubuntu/)
 - Install [PyTorch](https://pytorch.org/get-started/locally/)
 - Install nnU-Net as below
 ```
