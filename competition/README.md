@@ -103,7 +103,7 @@ def load_pretrained_weights(self,fname):
 - Run the following command to fine-tune the model on Task003_Liver:
 
 ```bash
-For FOLD in 0 1 2 3 4
+for FOLD in 0 1 2 3 4
 do
 nnUNet_train 3d_fullres nnUNetTrainerV2 Task003_Liver $FOLD -w pretrained_weights/genesis_nnunet_luna16_006.model
 done
