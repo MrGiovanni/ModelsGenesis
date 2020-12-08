@@ -29,6 +29,12 @@ Medical Image Analysis (MedIA) <br/>
 
 ## Usage of the pre-trained nnU-Net (Task003_Liver as an example)
 
+| experiment      | Liver 1_Dice | Liver 2_Dice | 
+|---------------------|:--:|:------------:|
+| nnU-Net (reported)               | 95.71 |  63.72  |
+| nnU-Net (reproduced)          | 96.18 | 62.61 +- 0.51 |
+| Pre-trained nnU-Net   |    |  64.47 +- 0.45  |
+
 ### 0. Before proceeding to the below steps, install nnUNet from [here](https://github.com/MIC-DKFZ/nnUNet).
 
 - Create virtual environment. [Here is a quick how-to for Ubuntu](https://linoxide.com/linux-how-to/setup-python-virtual-environment-ubuntu/)
