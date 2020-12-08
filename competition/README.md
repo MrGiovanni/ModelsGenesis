@@ -31,9 +31,9 @@ Medical Image Analysis (MedIA) <br/>
 
 | experiment      | Liver 1_Dice | Liver 2_Dice | 
 |---------------------|:--:|:------------:|
-| nnU-Net (reported)               | 95.71 |  63.72  |
-| nnU-Net (reproduced)          | 96.18 | 62.61 ± 0.51 |
-| Pre-trained nnU-Net   |    |  64.47 ± 0.45  |
+| nnU-Net (reported)               | 95.71 | 63.72 |
+| nnU-Net (reproduced)          | 95.74 ± 0.34 | 62.61 ± 0.51 |
+| Pre-trained nnU-Net   | 96.16 ± 0.017 | 64.47 ± 0.45 |
 
 ### 0. Before proceeding to the below steps, install nnUNet from [here](https://github.com/MIC-DKFZ/nnUNet).
 
