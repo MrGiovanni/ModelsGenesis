@@ -199,12 +199,16 @@ If you use this code or use our pre-trained weights for your research, please ci
   url="https://link.springer.com/chapter/10.1007/978-3-030-32251-9_42"
 }
 
-@article{zhou2020models,
+@article{zhou2021models,
   title="Models Genesis",
   author="Zhou, Zongwei and Sodha, Vatsal and Pang, Jiaxuan and Gotway, Michael B and Liang, Jianming",
-  journal="arXiv preprint arXiv:2004.07882",
-  year="2020",
-  url="https://arxiv.org/abs/2004.07882"
+  journal="Medical Image Analysis",
+  volume = "67",
+  pages = "101840",
+  year = "2021",
+  issn = "1361-8415",
+  doi = "https://doi.org/10.1016/j.media.2020.101840",
+  url = "http://www.sciencedirect.com/science/article/pii/S1361841520302048",
 }
 ```
 
