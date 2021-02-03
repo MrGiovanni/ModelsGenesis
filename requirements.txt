@@ -2,7 +2,6 @@
 # $ conda create --name <env> --file <this file>
 # platform: linux-64
 
-python==3.6.3
 tqdm
 sklearn
 scikit-image
