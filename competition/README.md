@@ -30,13 +30,13 @@ Medical Image Analysis (MedIA) <br/>
 
 ## Featured results
 
-| experiment      | Liver 1_Dice (val) | Liver 2_Dice (val) | Liver 1_Dice (te) | Liver 2_Dice (te) |
+| Experiment      | Liver 1_Dice (val) | Liver 2_Dice (val) | Liver 1_Dice (te) | Liver 2_Dice (te) |
 |-----------------|:------------------:|:------------------:|:-----------------:|:-----------------:|
 | nnU-Net (reported)               | 95.71 | 63.72 |
 | nnU-Net (reproduced)          | 95.74 ± 0.34 | 62.61 ± 0.51 |
 | Pre-trained nnU-Net   | 96.16 ± 0.02 | 64.47 ± 0.45 |
 
-| experiment      | Lung 1_Dice (val) | Lung 1_Dice (te) |
+| Experiment      | Lung 1_Dice (val) | Lung 1_Dice (te) |
 |-----------------|:-----------------:|:----------------:|
 | nnU-Net (reported)               |  |  |
 | nnU-Net (reproduced)          |  |  |
