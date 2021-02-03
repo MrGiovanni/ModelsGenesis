@@ -28,6 +28,8 @@ Medical Image Analysis (MedIA) <br/>
 + Python 3.7+
 + PyTorch 1.6+
 
+## Featured results
+
 | experiment      | Liver 1_Dice (val) | Liver 2_Dice (val) | Liver 1_Dice (te) | Liver 2_Dice (te) |
 |-----------------|:------------------:|:------------------:|:-----------------:|:-----------------:|
 | nnU-Net (reported)               | 95.71 | 63.72 |
