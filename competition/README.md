@@ -28,13 +28,14 @@ Medical Image Analysis (MedIA) <br/>
 + Python 3.7+
 + PyTorch 1.6+
 
-## Usage of the pre-trained nnU-Net (Task003_Liver as an example)
-
-| experiment      | Liver 1_Dice | Liver 2_Dice | 
-|---------------------|:--:|:------------:|
+| experiment      | Liver 1_Dice (val) | Liver 2_Dice (val) | Liver 1_Dice (te) | Liver 2_Dice (te) |
+|-----------------|:------------------:|:------------------:|:-----------------:|:-----------------:|
 | nnU-Net (reported)               | 95.71 | 63.72 |
 | nnU-Net (reproduced)          | 95.74 ± 0.34 | 62.61 ± 0.51 |
 | Pre-trained nnU-Net   | 96.16 ± 0.02 | 64.47 ± 0.45 |
+
+## Usage of the pre-trained nnU-Net (Task003_Liver as an example)
+
 
 ### 0. Before proceeding to the below steps, install nnUNet from [here](https://github.com/MIC-DKFZ/nnUNet).
 
