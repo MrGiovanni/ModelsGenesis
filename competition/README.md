@@ -3,6 +3,7 @@
 By adapting Models Genesis to nnU-Net, we (user: JLiangLab) have so far accomplished:<br/>
 
 &#9733; Rank # 1 in segmenting liver tumor<br/>
+&#9733; Outperform scratch nnU-Net in segmenting lung nodule<br/>
 
 In this page, we provide the pre-trained 3D nnU-Net and describe the usage of the model. The original idea has been presented in the following papers:
 
