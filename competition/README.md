@@ -42,6 +42,8 @@ Medical Image Analysis (MedIA) <br/>
 | nnU-Net (reproduced)          | 69.50 ± 1.13 | - |
 | Pre-trained nnU-Net   | 71.80 ± 1.40 | 74.54 |
 
+Note: Since the network architectures vary from task to task, we select two tasks, i.e., Task003_Liver and Task006_Lung, which share exactly the same architecture. One of the typical transfer learning barriers is that the proxy and target tasks' architectures must be the same; otherwise, the pre-trained weights will be meaningless. Pre-training unique architectures for every individual task would take too much computational power and time to accomplish. It would be great to address this limitation for Models Genesis, and for transfer learning in general.
+
 ## Usage of the pre-trained nnU-Net (Task003_Liver as an example)
 
 
