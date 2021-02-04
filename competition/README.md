@@ -40,7 +40,7 @@ Medical Image Analysis (MedIA) <br/>
 |-----------------|:-----------------:|:----------------:|
 | nnU-Net (reported)               | 72.11 | 73.97 |
 | nnU-Net (reproduced)          | 69.50 ± 1.13 | - |
-| Pre-trained nnU-Net   | 71.80 ± 1.4 | 74.54 |
+| Pre-trained nnU-Net   | 71.80 ± 1.40 | 74.54 |
 
 ## Usage of the pre-trained nnU-Net (Task003_Liver as an example)
 
