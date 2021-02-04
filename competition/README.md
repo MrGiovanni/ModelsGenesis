@@ -30,17 +30,17 @@ Medical Image Analysis (MedIA) <br/>
 
 ## Featured results
 
-| Experiment      | Liver 1_Dice (val) | Liver 2_Dice (val) | Liver 1_Dice (te) | Liver 2_Dice (te) |
+| Experiment      | Liver 1_Dice (val) | Liver 2_Dice (val) | Liver 1_Dice (test) | Liver 2_Dice (test) |
 |-----------------|:------------------:|:------------------:|:-----------------:|:-----------------:|
-| nnU-Net (reported)               | 95.71 | 63.72 |
-| nnU-Net (reproduced)          | 95.74 ± 0.34 | 62.61 ± 0.51 |
-| Pre-trained nnU-Net   | 96.16 ± 0.02 | 64.47 ± 0.45 |
+| nnU-Net (reported)               | 95.71 | 63.72 |  95.75 | 75.97 |
+| nnU-Net (reproduced)          | 95.74 ± 0.34 | 62.61 ± 0.51 | 95.75 | 75.97 |
+| Pre-trained nnU-Net   | 96.16 ± 0.02 | 64.47 ± 0.45 | 95.72 | 77.50 |
 
-| Experiment      | Lung 1_Dice (val) | Lung 1_Dice (te) |
+| Experiment      | Lung 1_Dice (val) | Lung 1_Dice (test) |
 |-----------------|:-----------------:|:----------------:|
-| nnU-Net (reported)               |  |  |
-| nnU-Net (reproduced)          |  |  |
-| Pre-trained nnU-Net   |  |  |
+| nnU-Net (reported)               | 72.11 | 73.97 |
+| nnU-Net (reproduced)          | 69.50 ± 1.13 | 73.97 |
+| Pre-trained nnU-Net   | 71.80 ± 1.4 | 74.54 |
 
 ## Usage of the pre-trained nnU-Net (Task003_Liver as an example)
 
