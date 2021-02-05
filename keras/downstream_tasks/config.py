@@ -1,7 +1,6 @@
 import os
 import shutil
 import csv
-import keras
 import random
 
 class bms_config:
@@ -11,7 +10,6 @@ class bms_config:
     data = '/mnt/dataset/shared/zongwei/BraTS'
     csv = "data/bms"
     deltr = 30
-    step_pixel_size = 30
     input_rows = 64 
     input_cols = 64
     input_deps = 32
@@ -20,13 +18,12 @@ class bms_config:
     crop_deps = 50
     
     # model
+    optimizer = 'adam'
     lr = 1e-3
-    optimizer = keras.optimizers.Adam(lr=lr)
     patience = 30
     verbose = 1
-    batch_size = 12
-    use_multiprocessing = True
-    workers = 4
+    batch_size = 16
+    workers = 1
     max_queue_size = workers * 1
     nb_epoch = 10000
     
@@ -106,12 +103,11 @@ class ecc_config:
     input_deps = 64
     
     # model
+    optimizer = 'adam'
     lr = 1e-3
-    optimizer = keras.optimizers.Adam(lr=lr)
     patience = 38
     verbose = 1
     batch_size = 24
-    use_multiprocessing = False
     workers = 1
     max_queue_size = workers * 1
     nb_epoch = 10000
@@ -180,12 +176,11 @@ class ncc_config:
     input_deps = 32
     
     # model
+    optimizer = 'adam'
     lr = 1e-3
-    optimizer = keras.optimizers.Adam(lr=lr)
     patience = 10
     verbose = 1
     batch_size = 24
-    use_multiprocessing = False
     workers = 1
     max_queue_size = workers * 1
     nb_epoch = 10000
@@ -245,12 +240,11 @@ class ncs_config:
     input_deps = 32
     
     # model
+    optimizer = 'adam'
     lr = 1e-3
-    optimizer = keras.optimizers.Adam(lr=lr)
     patience = 50
     verbose = 1
     batch_size = 16
-    use_multiprocessing = False
     workers = 1
     max_queue_size = workers * 1
     nb_epoch = 10000
@@ -320,12 +314,11 @@ class lcs_config:
     input_deps = 32
     
     # model
-    lr = 1e-3
-    optimizer = keras.optimizers.Adam(lr=lr)
+    optimizer = 'adam'
+    lr = 1e-2
     patience = 20
     verbose = 1
     batch_size = 16
-    use_multiprocessing = False
     workers = 1
     max_queue_size = workers * 1
     nb_epoch = 10000
