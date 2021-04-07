@@ -173,6 +173,36 @@ def segmentation_model_evaluation(model, config, x, y, note=None):
 ######
 # Module: Visualization
 ######
+
+def plot_image_truth_prediction(x, y, p, rows=12, cols=12):
+    x, y, p = np.squeeze(x), np.squeeze(y), np.squeeze(p>0.5)
+    plt.rcParams.update({'font.size': 30})
+    plt.figure(figsize=(25*3, 25))
+
+    large_image = np.zeros((rows*x.shape[0], cols*x.shape[1]))
+    for b in range(rows*cols):
+        large_image[(b//rows)*x.shape[0]:(b//rows+1)*x.shape[0],
+                    (b%cols)*x.shape[1]:(b%cols+1)*x.shape[1]] = np.transpose(np.squeeze(x[:, :, b]))
+    plt.subplot(1, 3, 1)
+    plt.imshow(large_image, cmap='gray', vmin=0, vmax=1); plt.axis('off')
+
+    large_image = np.zeros((rows*x.shape[0], cols*x.shape[1]))
+    for b in range(rows*cols):
+        large_image[(b//rows)*y.shape[0]:(b//rows+1)*y.shape[0],
+                    (b%cols)*y.shape[1]:(b%cols+1)*y.shape[1]] = np.transpose(np.squeeze(y[:, :, b]))
+    plt.subplot(1, 3, 2)
+    plt.imshow(large_image, cmap='gray', vmin=0, vmax=1); plt.axis('off')
+
+    large_image = np.zeros((rows*p.shape[0], cols*p.shape[1]))
+    for b in range(rows*cols):
+        large_image[(b//rows)*p.shape[0]:(b//rows+1)*p.shape[0],
+                    (b%cols)*p.shape[1]:(b%cols+1)*p.shape[1]] = np.transpose(np.squeeze(p[:, :, b]))
+    plt.subplot(1, 3, 3)
+    plt.imshow(large_image, cmap='gray', vmin=0, vmax=1); plt.axis('off')
+
+    plt.show()
+    
+    
 def plot_case(case_id=None, mris=None, segs=None, rows=10, cols=10, increment=38):
     assert case_id is not None
     assert mris is not None
