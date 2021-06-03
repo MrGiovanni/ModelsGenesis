@@ -22,6 +22,11 @@ Medical Image Analysis (MedIA) <br/>
 <b>[MedIA Best Paper Award](http://www.miccai.org/about-miccai/awards/medical-image-analysis-best-paper-award/)</b>  <br/>
 [paper](https://arxiv.org/pdf/2004.07882.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://d5b3ebbb-7f8d-4011-9114-d87f4a930447.filesusr.com/ugd/deaea1_5ecdfa48836941d6ad174dcfbc925575.pdf)
 
+<b>Pre-Trained Models for nnUNet</b> <br/>
+[Shivam Bajpai](https://www.linkedin.com/in/shivam-bajpai-69937734/) <br/>
+Master's Degree Thesis, Arizona State University <br/>
+[paper](https://www.proquest.com/docview/2532501890?pq-origsite=gscholar&fromopenview=true) | [code](https://github.com/MrGiovanni/ModelsGenesis/tree/master/competition)
+
 ## Dependencies
 
 + Linux
@@ -211,6 +216,13 @@ If you use this code or use our pre-trained weights for your research, please ci
   issn = "1361-8415",
   doi = "https://doi.org/10.1016/j.media.2020.101840",
   url = "http://www.sciencedirect.com/science/article/pii/S1361841520302048",
+}
+
+@phdthesis{bajpai2021pre,
+  title={Pre-Trained Models for nnUNet},
+  author={Bajpai, Shivam},
+  year={2021},
+  school={Arizona State University}
 }
 ```
 
