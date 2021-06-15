@@ -180,6 +180,13 @@ If you use this code or use our pre-trained weights for your research, please ci
   doi = "https://doi.org/10.1016/j.media.2020.101840",
   url = "http://www.sciencedirect.com/science/article/pii/S1361841520302048",
 }
+
+@phdthesis{zhou2021towards,
+  title={Towards Annotation-Efficient Deep Learning for Computer-Aided Diagnosis},
+  author={Zhou, Zongwei},
+  year={2021},
+  school={Arizona State University}
+}
 ```
 
 
