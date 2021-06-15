@@ -224,6 +224,13 @@ If you use this code or use our pre-trained weights for your research, please ci
   year={2021},
   school={Arizona State University}
 }
+
+@phdthesis{zhou2021towards,
+  title={Towards Annotation-Efficient Deep Learning for Computer-Aided Diagnosis},
+  author={Zhou, Zongwei},
+  year={2021},
+  school={Arizona State University}
+}
 ```
 
 ## Acknowledgement
