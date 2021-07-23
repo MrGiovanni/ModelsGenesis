@@ -48,8 +48,8 @@ for i,fold in enumerate(tqdm(config.valid_fold)):
     s = np.load(os.path.join(config.DATA_DIR, "bat_"+str(config.scale)+"_s_64x64x32_"+str(fold)+".npy"))
     x_valid.extend(s)
 x_valid = np.expand_dims(np.array(x_valid), axis=1)
-print('training_data_shape: ' x_train.shape)
-print('validation_data_shape: ' x_valid.shape)
+print('training_data_shape: ', x_train.shape)
+print('validation_data_shape: ', x_valid.shape)
 
 ################### configuration for model
 num_input_channels=1
