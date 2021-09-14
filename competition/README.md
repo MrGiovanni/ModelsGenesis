@@ -20,7 +20,7 @@ International Conference on Medical Image Computing and Computer Assisted Interv
 <sup>1 </sup>Arizona State University,   <sup>2 </sup>Mayo Clinic <br/>
 Medical Image Analysis (MedIA) <br/>
 <b>[MedIA Best Paper Award](http://www.miccai.org/about-miccai/awards/medical-image-analysis-best-paper-award/)</b>  <br/>
-[paper](https://arxiv.org/pdf/2004.07882.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://d5b3ebbb-7f8d-4011-9114-d87f4a930447.filesusr.com/ugd/deaea1_5ecdfa48836941d6ad174dcfbc925575.pdf)
+[paper](https://arxiv.org/pdf/2004.07882.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://d5b3ebbb-7f8d-4011-9114-d87f4a930447.filesusr.com/ugd/deaea1_5ecdfa48836941d6ad174dcfbc925575.pdf) | [graphical abstract](https://ars.els-cdn.com/content/image/1-s2.0-S1361841520302048-fx1_lrg.jpg)
 
 <b>Pre-Trained Models for nnUNet</b> <br/>
 [Shivam Bajpai](https://www.linkedin.com/in/shivam-bajpai-69937734/) <br/>
