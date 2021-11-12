@@ -1,17 +1,12 @@
 from __future__ import print_function
-import math
-import os
 import random
 import copy
-import scipy
-import imageio
-import string
 import numpy as np
-from skimage.transform import resize
 try:  # SciPy >= 0.19
     from scipy.special import comb
 except ImportError:
     from scipy.misc import comb
+
 
 def bernstein_poly(i, n, t):
     """
@@ -19,6 +14,7 @@ def bernstein_poly(i, n, t):
     """
 
     return comb(n, i) * ( t**(n-i) ) * (1 - t)**i
+
 
 def bezier_curve(points, nTimes=1000):
     """
@@ -46,6 +42,7 @@ def bezier_curve(points, nTimes=1000):
     return xvals, yvals
 
 def data_augmentation(x, y, prob=0.5):
+
     # augmentation by flipping
     cnt = 3
     while random.random() < prob and cnt > 0:
@@ -57,6 +54,7 @@ def data_augmentation(x, y, prob=0.5):
     return x, y
 
 def nonlinear_transformation(x, prob=0.5):
+
     if random.random() >= prob:
         return x
     points = [[0, 0], [random.random(), random.random()], [random.random(), random.random()], [1, 1]]
@@ -70,6 +68,7 @@ def nonlinear_transformation(x, prob=0.5):
         xvals, yvals = np.sort(xvals), np.sort(yvals)
     nonlinear_x = np.interp(x, xvals, yvals)
     return nonlinear_x
+
 
 def local_pixel_shuffling(x, prob=0.5):
     if random.random() >= prob:
@@ -101,6 +100,7 @@ def local_pixel_shuffling(x, prob=0.5):
 
     return local_shuffling_x
 
+
 def image_in_painting(x):
     _, img_rows, img_cols, img_deps = x.shape
     cnt = 5
@@ -119,6 +119,7 @@ def image_in_painting(x):
                                                                block_noise_size_z, ) * 1.0
         cnt -= 1
     return x
+
 
 def image_out_painting(x):
     _, img_rows, img_cols, img_deps = x.shape
