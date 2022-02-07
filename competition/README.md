@@ -100,8 +100,7 @@ def load_pretrained_weights(self,fname):
     for key, _ in model_dict.items():                                       
        if ('conv_blocks' in key):                                           
            if (key in pretrained_dict) and (model_dict[key].shape == pretrained_dict[key].shape):
-               fine_tune = True
-               # continue                                                     
+               pass                                                    
            else:                                                            
                fine_tune = False                                            
                break                                                        
