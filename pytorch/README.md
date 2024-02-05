@@ -38,9 +38,9 @@ $ pip install -r requirements.txt
 
 | Weight | Download | Description |
 |  ----  | ----  |  ----  |
-| Genesis_Chest_CT.h5  | [link](https://livejohnshopkins-my.sharepoint.com/:u:/g/personal/zzhou82_jh_edu/EeT9un5kqYNIlU8WdyI-2wEBGhkADp7Xk0El-_AIOfGk4g?e=FMIfgQ) | pre-trained U-Net weights in keras |
-| Genesis_Chest_CT.pt | [link](https://livejohnshopkins-my.sharepoint.com/:u:/g/personal/zzhou82_jh_edu/EbVWo7M3Gl9ImPzVmxTlymgBnS8W-e8fPm_gaf-huhX6Aw?e=EYj9r8) | pre-trained U-Net weights in pytorch |
-| genesis_nnunet_luna16_006.model | [link](https://livejohnshopkins-my.sharepoint.com/:u:/g/personal/zzhou82_jh_edu/EYXRUP422pJLi9qx5oAxbe0Bo0M0-8BLFsDlrsS-HAT8-A?e=pt22ZN) | pre-trained nnU-Net weights in pytorch | 
+| Genesis_Chest_CT.h5  | [link](https://huggingface.co/MrGiovanni/ModelsGenesis/resolve/main/Genesis_Chest_CT.h5?download=true) | pre-trained U-Net weights in keras |
+| Genesis_Chest_CT.pt | [link](https://huggingface.co/MrGiovanni/ModelsGenesis/resolve/main/Genesis_Chest_CT.pt?download=true) | pre-trained U-Net weights in pytorch |
+| genesis_nnunet_luna16_006.model | [link](https://huggingface.co/MrGiovanni/ModelsGenesis/resolve/main/genesis_nnunet_luna16_006.model?download=true) | pre-trained nnU-Net weights in pytorch |  
 
 Download the pre-trained Genesis Chest CT and save into `./pretrained_weights/Genesis_Chest_CT.pt` directory.
 
