@@ -1,0 +1,84 @@
+cff-version: 1.2.0
+message: "If you use Models Genesis, please cite the Medical Image Analysis paper below."
+title: "Models Genesis: self-supervised pre-trained 3D models for medical image analysis"
+abstract: "Models Genesis is a self-supervised learning framework that pre-trains 3D models on unlabeled medical images. It learns transferable visual representations from CT and MRI volumes with no manual annotation, using image restoration proxy tasks (non-linear intensity transformation, local pixel shuffling, out-painting and in-painting), and fine-tunes for downstream segmentation and classification. Keras and PyTorch pre-trained weights are provided."
+type: software
+repository-code: "https://github.com/MrGiovanni/ModelsGenesis"
+url: "https://github.com/MrGiovanni/ModelsGenesis"
+license-url: "https://github.com/MrGiovanni/ModelsGenesis/blob/master/LICENSE"
+keywords:
+  - "self-supervised-learning"
+  - "representation-learning"
+  - "transfer-learning"
+  - "pretraining"
+  - "pretrained-models"
+  - "foundation-models"
+  - "medical-imaging"
+  - "medical-image-analysis"
+  - "medical-image-segmentation"
+  - "3d-segmentation"
+  - "ct"
+  - "mri"
+  - "computed-tomography"
+  - "radiology"
+authors:
+  - family-names: "Zhou"
+    given-names: "Zongwei"
+    orcid: "https://orcid.org/0000-0002-3154-9851"
+  - family-names: "Sodha"
+    given-names: "Vatsal"
+  - family-names: "Siddiquee"
+    given-names: "Md Mahfuzur Rahman"
+  - family-names: "Feng"
+    given-names: "Ruibin"
+  - family-names: "Tajbakhsh"
+    given-names: "Nima"
+  - family-names: "Gotway"
+    given-names: "Michael B."
+  - family-names: "Liang"
+    given-names: "Jianming"
+preferred-citation:
+  type: article
+  title: "Models Genesis"
+  authors:
+    - family-names: "Zhou"
+      given-names: "Zongwei"
+      orcid: "https://orcid.org/0000-0002-3154-9851"
+    - family-names: "Sodha"
+      given-names: "Vatsal"
+    - family-names: "Pang"
+      given-names: "Jiaxuan"
+    - family-names: "Gotway"
+      given-names: "Michael B."
+    - family-names: "Liang"
+      given-names: "Jianming"
+  journal: "Medical Image Analysis"
+  volume: 67
+  year: 2021
+  doi: "10.1016/j.media.2020.101840"
+references:
+  - type: conference-paper
+    title: "Models Genesis: Generic Autodidactic Models for 3D Medical Image Analysis"
+    authors:
+      - family-names: "Zhou"
+        given-names: "Zongwei"
+        orcid: "https://orcid.org/0000-0002-3154-9851"
+      - family-names: "Sodha"
+        given-names: "Vatsal"
+      - family-names: "Siddiquee"
+        given-names: "Md Mahfuzur Rahman"
+      - family-names: "Feng"
+        given-names: "Ruibin"
+      - family-names: "Tajbakhsh"
+        given-names: "Nima"
+      - family-names: "Gotway"
+        given-names: "Michael B."
+      - family-names: "Liang"
+        given-names: "Jianming"
+    collection-title: "Medical Image Computing and Computer Assisted Intervention (MICCAI 2019)"
+    publisher:
+      name: "Springer"
+    start: 384
+    end: 393
+    year: 2019
+    doi: "10.1007/978-3-030-32251-9_42"

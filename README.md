@@ -7,7 +7,11 @@
 
 </div>
 
-We have built a set of pre-trained models called <b>Generic Autodidactic Models</b>, nicknamed <b>Models Genesis</b>, because they are created <i>ex nihilo</i> (with no manual labeling), self-taught (learned by self-supervision), and generic (served as source models for generating application-specific target models). We envision that Models Genesis may serve as a primary source of transfer learning for 3D medical imaging applications, in particular, with limited annotated data. 
+**Models Genesis** is a self-supervised learning framework that pre-trains 3D models on unlabeled medical images. It learns transferable visual representations from CT and MRI volumes with no manual annotation, and those representations fine-tune for downstream segmentation and classification.
+
+Pre-training uses image restoration proxy tasks: non-linear intensity transformation, local pixel shuffling, out-painting, and in-painting. The model learns anatomy by reconstructing deliberately distorted volumes. In the self-supervised learning literature this places Models Genesis in the *generative* or *restorative* family, as distinct from contrastive methods.
+
+The original name, <b>Generic Autodidactic Models</b>, describes the same idea: models created <i>ex nihilo</i> (with no manual labeling), self-taught (learned by self-supervision), and generic (serving as source models for application-specific target models). Models Genesis is a primary source of transfer learning for 3D medical imaging, particularly where annotated data is limited. 
 
 <p align="center"><img width="100%" src="figures/patch_generator.png" /></p>
 <p align="center"><img width="85%" src="figures/framework.png" /></p>
@@ -21,14 +25,14 @@ This repository provides the official implementation of training Models Genesis 
 [Ruibin Feng](https://chs.asu.edu/ruibin-feng)<sup>1</sup>, [Nima Tajbakhsh](https://www.linkedin.com/in/nima-tajbakhsh-b5454376/)<sup>1</sup>, [Michael B. Gotway](https://www.mayoclinic.org/biographies/gotway-michael-b-m-d/bio-20055566)<sup>2</sup>, and [Jianming Liang](https://chs.asu.edu/jianming-liang)<sup>1</sup> <br/>
 <sup>1 </sup>Arizona State University,   <sup>2 </sup>Mayo Clinic <br/>
 International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2019 <br/>
-<b>[Young Scientist Award](http://www.miccai.org/about-miccai/awards/young-scientist-award/)</b>  <br/>
-[paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://docs.wixstatic.com/ugd/deaea1_c5e0f8cd9cde4c3db339d866483cbcd3.pdf) | [poster](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/Models_Genesis_Poster.pdf) | talk ([YouTube](https://youtu.be/5W_uGzBloZs), [YouKu](https://v.youku.com/v_show/id_XNDM5NjQ1ODAxMg==.html?sharefrom=iphone&sharekey=496e1494c76ed263653aa3aada61c23e6)) | [blog](https://zhuanlan.zhihu.com/p/86366534)
+<b>[Young Scientist Award](https://miccai.org/conference-awards/best-paper-award-and-young-scientist-award/)</b>  <br/>
+[paper](https://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://docs.wixstatic.com/ugd/deaea1_c5e0f8cd9cde4c3db339d866483cbcd3.pdf) | [poster](https://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/Models_Genesis_Poster.pdf) | talk ([YouTube](https://youtu.be/5W_uGzBloZs), [YouKu](https://v.youku.com/v_show/id_XNDM5NjQ1ODAxMg==.html?sharefrom=iphone&sharekey=496e1494c76ed263653aa3aada61c23e6)) | [blog](https://zhuanlan.zhihu.com/p/86366534)
 
 <b>Models Genesis</b> <br/>
 [Zongwei Zhou](https://www.zongweiz.com/)<sup>1</sup>, [Vatsal Sodha](https://github.com/vatsal-sodha)<sup>1</sup>, [Jiaxuan Pang](https://github.com/MRJasonP)<sup>1</sup>, [Michael B. Gotway](https://www.mayoclinic.org/biographies/gotway-michael-b-m-d/bio-20055566)<sup>2</sup>, and [Jianming Liang](https://chs.asu.edu/jianming-liang)<sup>1</sup> <br/>
 <sup>1 </sup>Arizona State University,   <sup>2 </sup>Mayo Clinic <br/>
 Medical Image Analysis (MedIA) <br/>
-<b>[MedIA Best Paper Award](http://www.miccai.org/about-miccai/awards/medical-image-analysis-best-paper-award/)</b>  <br/>
+<b>[MedIA Best Paper Award](https://miccai.org/conference-awards/medical-image-analysis-best-paper-award/)</b>  <br/>
 [paper](https://arxiv.org/pdf/2004.07882.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://d5b3ebbb-7f8d-4011-9114-d87f4a930447.filesusr.com/ugd/deaea1_5ecdfa48836941d6ad174dcfbc925575.pdf) | [graphical abstract](https://ars.els-cdn.com/content/image/1-s2.0-S1361841520302048-fx1_lrg.jpg)
 
 <p float="center">
@@ -41,7 +45,7 @@ Medical Image Analysis (MedIA) <br/>
 - keras/
 - pytorch/
 
-**&#9733; News: Models Genesis, incorporated with nnU-Net, [rank # 1](https://decathlon-10.grand-challenge.org/evaluation/challenge/leaderboard/) in segmenting liver/tumor and hippocampus.**
+**&#9733; Models Genesis, incorporated with nnU-Net, ranked #1 in liver/tumor and hippocampus segmentation on the [Medical Segmentation Decathlon](https://decathlon-10.grand-challenge.org/evaluation/challenge/leaderboard/) (as of 2021; the live leaderboard now loads results client-side and may not display historical standings).**
 - competition/
 
 
@@ -81,8 +85,8 @@ If you use this code or use our pre-trained weights for your research, please ci
   pages = "101840",
   year = "2021",
   issn = "1361-8415",
-  doi = "https://doi.org/10.1016/j.media.2020.101840",
-  url = "http://www.sciencedirect.com/science/article/pii/S1361841520302048",
+  doi = "10.1016/j.media.2020.101840",
+  url = "https://www.sciencedirect.com/science/article/abs/pii/S1361841520302048",
 }
 
 @phdthesis{zhou2021towards,
