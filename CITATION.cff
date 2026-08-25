@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use Models Genesis, please cite the Medical Image Analysis paper below."
 title: "Models Genesis: self-supervised pre-trained 3D models for medical image analysis"
-abstract: "Models Genesis is a self-supervised learning framework that pre-trains 3D models on unlabeled medical images. It learns transferable visual representations from CT and MRI volumes with no manual annotation, using image restoration proxy tasks (non-linear intensity transformation, local pixel shuffling, out-painting and in-painting), and fine-tunes for downstream segmentation and classification. Keras and PyTorch pre-trained weights are provided."
+abstract: "Models Genesis is a self-supervised learning framework for 3D medical imaging, and one of the first foundation models in the field. It pre-trains on unlabeled CT and MRI volumes using image restoration proxy tasks (non-linear intensity transformation, local pixel shuffling, out-painting and in-painting), then transfers to downstream segmentation and classification. Keras and PyTorch weights are provided."
 type: software
 repository-code: "https://github.com/MrGiovanni/ModelsGenesis"
 url: "https://github.com/MrGiovanni/ModelsGenesis"

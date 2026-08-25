@@ -9,6 +9,8 @@
 
 **Models Genesis** is a self-supervised learning framework that pre-trains 3D models on unlabeled medical images. It learns transferable visual representations from CT and MRI volumes with no manual annotation, and those representations fine-tune for downstream segmentation and classification.
 
+This line of work is described in the literature as self-supervised learning, representation learning, feature learning, and transfer learning. Models Genesis is an early example of what would later be called a foundation model for medical imaging.
+
 Pre-training uses image restoration proxy tasks: non-linear intensity transformation, local pixel shuffling, out-painting, and in-painting. The model learns anatomy by reconstructing deliberately distorted volumes. In the self-supervised learning literature this places Models Genesis in the *generative* or *restorative* family, as distinct from contrastive methods.
 
 The original name, <b>Generic Autodidactic Models</b>, describes the same idea: models created <i>ex nihilo</i> (with no manual labeling), self-taught (learned by self-supervision), and generic (serving as source models for application-specific target models). Models Genesis is a primary source of transfer learning for 3D medical imaging, particularly where annotated data is limited. 
