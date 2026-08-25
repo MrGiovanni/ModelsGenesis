@@ -1,4 +1,4 @@
-# Models Genesis - Incorperated with nnU-Net
+# Models Genesis - Incorporated with nnU-Net
 
 By adapting Models Genesis to nnU-Net, we (user: JLiangLab) have so far accomplished:<br/>
 
@@ -12,7 +12,7 @@ In this page, we provide the pre-trained 3D nnU-Net and describe the usage of th
 [Ruibin Feng](https://chs.asu.edu/ruibin-feng)<sup>1</sup>, [Nima Tajbakhsh](https://www.linkedin.com/in/nima-tajbakhsh-b5454376/)<sup>1</sup>, [Michael B. Gotway](https://www.mayoclinic.org/biographies/gotway-michael-b-m-d/bio-20055566)<sup>2</sup>, and [Jianming Liang](https://chs.asu.edu/jianming-liang)<sup>1</sup> <br/>
 <sup>1 </sup>Arizona State University,   <sup>2 </sup>Mayo Clinic <br/>
 International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2019 <br/>
-<b>[Young Scientist Award](http://www.miccai.org/about-miccai/awards/young-scientist-award/)</b>  <br/>
+<b>[Young Scientist Award](https://miccai.org/conference-awards/best-paper-award-and-young-scientist-award/)</b>  <br/>
 [paper](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf) | [code](https://github.com/MrGiovanni/ModelsGenesis) | [slides](https://docs.wixstatic.com/ugd/deaea1_c5e0f8cd9cde4c3db339d866483cbcd3.pdf) | [poster](http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/Models_Genesis_Poster.pdf) | talk ([YouTube](https://youtu.be/5W_uGzBloZs), [YouKu](https://v.youku.com/v_show/id_XNDM5NjQ1ODAxMg==.html?sharefrom=iphone&sharekey=496e1494c76ed263653aa3aada61c23e6)) | [blog](https://zhuanlan.zhihu.com/p/86366534)
 
 <b>Models Genesis</b> <br/>
@@ -221,11 +221,11 @@ If you use this code or use our pre-trained weights for your research, please ci
   pages = "101840",
   year = "2021",
   issn = "1361-8415",
-  doi = "https://doi.org/10.1016/j.media.2020.101840",
+  doi = "10.1016/j.media.2020.101840",
   url = "http://www.sciencedirect.com/science/article/pii/S1361841520302048",
 }
 
-@phdthesis{bajpai2021pre,
+@mastersthesis{bajpai2021pre,
   title={Pre-Trained Models for nnUNet},
   author={Bajpai, Shivam},
   year={2021},
